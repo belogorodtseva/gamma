@@ -1,0 +1,114 @@
+.unoproject{
+  background: #191919;
+  margin: 1% auto;
+  margin-left: 5%;
+
+  width: 90%;
+}
+
+.unobox {
+
+  width: 90%;
+  margin: 1% auto;
+  height: auto;
+  margin-bottom: 0%;
+  border-top: 5px solid #16a085;
+
+}
+
+.unobox p {
+  color: #ccc;
+font-size: 1.2vw;
+font-weight: lighter;
+width: 49%;
+float: left;
+margin-top: 2%;
+}
+
+.unobox h3 {
+  color: #ccc;
+font-size: 1.2vw;
+font-weight: lighter;
+width: 100%;
+float: left;
+
+}
+
+.unobox img {
+
+  width: 49%;
+  height: auto;
+  float: right;
+  margin: 3% auto;
+  border-top: 5px solid #16a085;
+  border-right: 5px solid #16a085;
+}
+
+.unop {
+  width: 70%;
+  height: auto;
+  margin-left: 15%;
+  margin: 3% auto;
+}
+
+@media screen and (max-width:1367px) {
+
+
+}
+
+
+@media(max-width:500px) {
+  .unoproject{
+    background: #191919;
+    margin: 1% auto;
+    margin-left: 5%;
+
+    width: 90%;
+  }
+
+  .unobox {
+    width: 90%;
+    margin: 4% auto;
+    height: auto;
+    margin-bottom: 0%;
+    overflow: auto;
+  }
+
+  .unobox p {
+    color: #ccc;
+  font-size: 3.2vw;
+  font-weight: lighter;
+  width: 100%;
+  float: left;
+  margin-top: 2%;
+  }
+
+  .unobox h3 {
+    color: #ccc;
+  font-size: 3.2vw;
+  font-weight: lighter;
+  width: 100%;
+  float: left;
+
+  }
+
+  .unobox img {
+
+    width: 100%;
+    height: auto;
+    float: right;
+    margin: 3% auto;
+    border-top: 6px solid #16a085;
+    border-right: 6px solid #16a085;
+  }
+
+  .unop {
+    width: 100%;
+    height: auto;
+    margin-left: 0%;
+    margin: 3% auto;
+  }
+
+}
+
+}

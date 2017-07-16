@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  {% load staticfiles %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Гама-Украина</title>
+  <link rel="stylesheet" href="{% static 'gammaukr/css/bootstrap.min.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'gammaukr/css/swiper.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'gammaukr/css/all.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'gammaukr/css/projtemp.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'gammaukr/css/mainpage.css' %}" type = "text/css"/>
+  <style>
+  @font-face {
+
+    font-family: Archive;
+
+    src: local("Archive"),
+
+         url("{% static 'gammaukr/fonts/Archive typeface.otf' %}");
+
+  }
+  </style>
+  {% block headin %}
+  {% endblock %}
+</head>
+<body>
+<div class="land" style="background-image:url({% static 'gammaukr/img/main/2.jpg' %})">
+</div>
+  <input type="checkbox" id="nav-toggle" hidden>
+  <nav class="nav">
+      <!--
+  Метка с именем `id` чекбокса в `for` атрибуте
+  Символ Unicode 'TRIGRAM FOR HEAVEN' (U+2630)
+  Пустой атрибут `onclick` используем для исправления бага в iOS < 6.0
+  См: http://timpietrusky.com/advanced-checkbox-hack
+  -->
+      <label for="nav-toggle" class="nav-toggle" onclick></label>
+      <!--
+  Здесь размещаете любую разметку,
+  если это меню, то скорее всего неупорядоченный список <ul>
+  -->
+      <h2 class="logo">
+          <a href="/">ГАММА УКРАИНА</a>
+      </h2>
+      <ul>
+          <li><a href="/">НА ГЛАВНУЮ</a>
+          <li><a href="/projects/">ПРОЕКТЫ</a>
+          <li><a href="/news/">НОВОСТИ</a>
+          <li><a href="/services/">УСЛУГИ</a>
+          <li><a href="/about/">О НАС</a>
+          <li><a href="/contacts/">КОНТAКТЫ</a>
+      </ul>
+  </nav>
+
+  <div class="mask-content"></div>
+
+
+<div class="mainbutton">
+
+  <a href="/projects/"><button type="button" class="btn btn-info">ПРОЕКТЫ</button></a>
+  <a href="/news/"><button type="button" class="btn btn-info">НОВОСТИ</button></a>
+  <a href="/services/"><button type="button" class="btn btn-info">УСЛУГИ</button></a>
+  <a href="/"><button type="button" class="btn btn-info">КОНТАКТЫ</button></a>
+  <a href="/"><button type="button" class="btn btn-info">О НАС</button></a>
+
+
+</div>
+
+
+  <div class="mainblock" >
+
+    {% block name %}
+    {% endblock %}
+
+  </div>
+
+  {% block filter %}
+  {% endblock %}
+
+  <div class="mainblock">
+
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  {% block ico %}
+  {% endblock %}
+
+    <!-- jQuery -->
+    <script src="static/gammaukr/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/gammaukr/js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="static/gammaukr/js/jquery.easing.min.js"></script>
+    <script src="/static/gammaukr/js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+      <script>
+
+    if(window.screen.width > 680) {
+      var sswiper = new Swiper('.swiper-container-ico', {
+
+          paginationClickable: true,
+
+          slidesPerView: 12,
+          autoplay: 1500,
+
+
+      });
+    }
+    if(window.screen.width < 680) {
+      var sswiper = new Swiper('.swiper-container-ico', {
+
+          paginationClickable: true,
+
+          slidesPerView: 6,
+          autoplay: 1500,
+
+
+      });
+    }
+      </script>
+
+</body>
+
+</html>

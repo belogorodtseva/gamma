@@ -1,0 +1,119 @@
+{% extends "gammaukr/index.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+
+  <link rel="stylesheet" href="{% static 'gammaukr/css/projtemp.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'gammaukr/css/mainpage.css' %}" type = "text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{% endblock %}
+
+{% block name %}
+{% for C in Car %}
+          <h1>ПРОЕКТЫ / {{C.name}}</h1>
+
+{% endfor %}
+
+{% endblock %}
+
+
+{% block filter %}
+<div class="mainbutton">
+
+    {% for S in Services %}
+        <a href="{% url 'projectservices' pk=S.pk %}"><button type="button" class="btn btn-info">{{S.name}}</button></a>
+    {% endfor %}
+
+
+</div>
+
+
+  <div class="mainblock">
+    <div class="swiper-container-ico">
+        <div class="swiper-wrapper">
+          {% for M in Models %}
+              <a href="{% url 'projectcar' pk=M.pk %}">
+                <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+                </div>
+              </a>
+          {% endfor %}
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/ford.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/skoda.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/suzuki.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/toyota.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/pego.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/merc.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/bmw.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/lada.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/ford.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/skoda.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/suzuki.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/toyota.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/pego.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/merc.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/bmw.png' %})"></div>
+            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/lada.png' %})"></div>
+        </div>
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block content %}
+    <div class="projecttemp">
+      <div class="row">
+        {% for P in Projects %}
+        <div class="col-sm-4 unoproject">
+          <div class="unoproject-xxx">
+            <div class="unoname">
+              <a href="{% url 'project' pk=P.pk %}"> {{P.name}} </a>
+            </div>
+<div>■</div>
+              <div class="unoimg">
+              <div class="photo" style="background-image:url({{ P.photo.url }});">
+                  <div class="unotext" >
+                  <img class="onlycomp" src="{% static 'gammaukr/img/up.png' %}" style="width:16%; margin-left: 42%; margin-right: 42%; margin-bottom:3%; ">
+
+                  <h3>{{P.text}}</h3>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+
+
+    <script>
+if(window.screen.width > 1025) {
+
+// project mask
+  $(document).ready(function(){
+    $('.unotext').each(function(){
+      $(this).animate({opacity:'0.5'},1);
+      $(this).mouseover(function(){
+        $(this).stop().stop()
+        .animate({opacity:'0.9'},300)
+
+        .animate({height:'70%'},300);
+      });
+      $(this).mouseout(function(){
+        $(this).stop()
+        .animate({opacity:'0.5'},300)
+
+        .animate({height:'25%'},300);;
+
+      }); }); });
+
+      }
+
+</script>
+{% endblock %}
