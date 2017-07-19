@@ -26,28 +26,36 @@
     <div class="swiper-container-ico">
         <div class="swiper-wrapper">
           {% for M in Models %}
-              <a href="{% url 'projectcar' pk=M.pk %}">
-                <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+
+                <div class="swiper-slide" >
+                  <a href="{% url 'projectcar' pk=M.pk %}">
+                    <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+                    </div>
+                  </a>
                 </div>
-              </a>
 
           {% endfor %}
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/ford.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/skoda.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/suzuki.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/toyota.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/pego.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/merc.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/bmw.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/lada.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/ford.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/skoda.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/suzuki.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/toyota.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/pego.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/merc.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/bmw.png' %})"></div>
-            <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/lada.png' %})"></div>
+          {% for M in Models %}
+
+                <div class="swiper-slide" >
+                  <a href="{% url 'projectcar' pk=M.pk %}">
+                    <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+                    </div>
+                  </a>
+                </div>
+
+          {% endfor %}
+          {% for M in Models %}
+
+                <div class="swiper-slide" >
+                  <a href="{% url 'projectcar' pk=M.pk %}">
+                    <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+                    </div>
+                  </a>
+                </div>
+
+          {% endfor %}
+
         </div>
     </div>
 
@@ -91,6 +99,7 @@ if(window.screen.width > 1360) {
 // project mask
   $(document).ready(function(){
     $('.unotext').each(function(){
+
       $(this).animate({opacity:'0.5'},1);
       $(this).mouseover(function(){
         $(this).stop().stop()
@@ -104,9 +113,14 @@ if(window.screen.width > 1360) {
 
         .animate({height:'25%'},300);;
 
-      }); }); });
+      }); });
+    });
+
+
 
       }
+
+
 
 </script>
 {% endblock %}

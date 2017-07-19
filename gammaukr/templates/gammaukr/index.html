@@ -27,6 +27,12 @@
   {% endblock %}
 </head>
 <body>
+
+  <div id="p_prldr"><center><div class="contpre">
+    <span class="svg_anm"></span>
+    <img src="{% static 'gammaukr/img/logo_gamma.png' %}" id = 'blabla'>
+  </div></center></div>
+
 <div class="land" style="background-image:url({% static 'gammaukr/img/main/2.jpg' %})">
 </div>
   <input type="checkbox" id="nav-toggle" hidden>
@@ -58,7 +64,7 @@
   <div class="mask-content"></div>
 
 
-<div class="mainbutton">
+<div class="mainbutton" id="menu">
 
   <a href="/projects/"><button type="button" class="btn btn-info">ПРОЕКТЫ</button></a>
   <a href="/news/"><button type="button" class="btn btn-info">НОВОСТИ</button></a>
@@ -124,6 +130,15 @@
       });
     }
       </script>
+
+      <!--Preloader-->
+
+  <script type="text/javascript">$(window).on('load', function () {
+    var $preloader = $('#p_prldr'),
+        $svg_anm   = $preloader.find('.svg_anm');
+    $svg_anm.fadeOut();
+    $preloader.delay(500).fadeOut('slow');
+});</script>
 
 </body>
 

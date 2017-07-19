@@ -79,32 +79,40 @@
 
 {% block ico %}
 
-<div class="mainblock">
+<div class="mainblock" style="background-color:transparent; width:100%;">
   <div class="swiper-container-ico">
       <div class="swiper-wrapper">
         {% for M in Models %}
-            <a href="{% url 'projectcar' pk=M.pk %}">
-              <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+
+              <div class="swiper-slide" >
+                <a href="{% url 'projectcar' pk=M.pk %}">
+                  <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+                  </div>
+                </a>
               </div>
-            </a>
+
         {% endfor %}
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/ford.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/skoda.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/suzuki.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/toyota.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/pego.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/merc.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/bmw.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/lada.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/ford.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/skoda.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/suzuki.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/toyota.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/pego.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/merc.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/bmw.png' %})"></div>
-          <div class="swiper-slide" style="background-image:url({% static 'gammaukr/img/cars/lada.png' %})"></div>
-      </div>
+        {% for M in Models %}
+
+              <div class="swiper-slide" >
+                <a href="{% url 'projectcar' pk=M.pk %}">
+                  <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+                  </div>
+                </a>
+              </div>
+
+        {% endfor %}
+        {% for M in Models %}
+
+              <div class="swiper-slide" >
+                <a href="{% url 'projectcar' pk=M.pk %}">
+                  <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+                  </div>
+                </a>
+              </div>
+
+        {% endfor %}
+        </div>
   </div>
 
 </div>

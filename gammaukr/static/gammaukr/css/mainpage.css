@@ -5,10 +5,14 @@
 }
 .swiper-slide {
     font-size: 18px;
-    color:#191919;
+    color:#ccc;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 40px 60px;
+}
+
+.swiper-container-ico .swiper-slide{
+    padding: 60px 0px;
 }
 .parallax-bg {
     position: absolute;
@@ -25,8 +29,9 @@
   max-width: 50%;
 }
 .swiper-slide .title, .swiper-slide .title a {
+  color: #ccc;
   padding-top: 1%;
-    font-size: 35px;
+    font-size: 32px;
     font-weight: 300;
 
 }
@@ -34,7 +39,7 @@
 
   padding-top: 5%;
   color: #16a085;
-    font-size: 21px;
+    font-size: 19px;
 
 
 }
@@ -92,6 +97,7 @@ float: right;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   float: right;
+  margin-top: 10%;
   }
 
   .swiper-slide .two {
@@ -107,22 +113,29 @@ float: right;
   }
   .swiper-slide .subtitle {
 
-    padding-top: 5%;
-    color: #16a085;
-      font-size: 15px;
+    display: none;
 
 
   }
 
+
+  .swiper-container-ico .swiper-slide{
+      padding: 30px 40px;
+  }
+
 }
 
-@media(min-width:700px) and (max-width:1024px) {
+@media(min-width:700px) and (max-width:1366px) {
 
   .swiper-slide .title , .swiper-slide .title a{
       font-size: 26px;
   }
   .swiper-slide .subtitle {
       font-size: 15px;
+  }
+
+  .swiper-container-ico .swiper-slide{
+      padding: 4vw 6vw;
   }
 
 }
@@ -153,6 +166,7 @@ float: right;
 }
 
 .title a {
+  color: #ccc;
   color:#191919;
 
 }

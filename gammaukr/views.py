@@ -32,6 +32,7 @@ def projectservices(request, pk):
 
 def project(request, pk):
     content = {
+        'Models' : Models.objects.all(),
         'Project' : Projects.objects.filter(pk=pk),
         'Detail' : Projects_steps.objects.filter(project=pk),
     }
@@ -53,9 +54,24 @@ def services(request):
     }
     return render(request, 'gammaukr/services.html', content)
 
+def service(request, pk):
+    content = {
+        'Services' : Services.objects.filter(pk=pk),
+        'Models' : Models.objects.all(),
+    }
+    return render(request, 'gammaukr/service.html', content)
+
 def news(request):
     content = {
         'Models' : Models.objects.all(),
+        'Projects' : Projects.objects.all(),
         'News' : News.objects.all(),
     }
     return render(request, 'gammaukr/news.html', content)
+
+def newsuno(request, pk):
+    content = {
+        'News' : News.objects.filter(pk=pk),
+        'Models' : Models.objects.all(),
+    }
+    return render(request, 'gammaukr/newsuno.html', content)

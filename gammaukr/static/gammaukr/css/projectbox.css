@@ -1,9 +1,13 @@
+.projecttemp {
+  background: black;
+}
+
 .unoproject{
   background: #191919;
   margin: 1% auto;
-  margin-left: 5%;
+  margin-left: 1%;
 
-  width: 90%;
+  width: 98%;
 }
 
 .unobox {
@@ -12,7 +16,7 @@
   margin: 1% auto;
   height: auto;
   margin-bottom: 0%;
-  border-top: 5px solid #16a085;
+
 
 }
 
@@ -61,9 +65,9 @@ float: left;
   .unoproject{
     background: #191919;
     margin: 1% auto;
-    margin-left: 5%;
+    margin-left: 1%;
 
-    width: 90%;
+    width: 98%;
   }
 
   .unobox {
