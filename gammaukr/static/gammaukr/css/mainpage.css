@@ -1,3 +1,13 @@
+.wiki {
+  text-indent: 1vw;
+  width: 30%;
+
+  margin-left: 60%;
+  font-size: 0.7vw;
+  color: #16a085;
+}
+
+
 .swiper-container {
     width: 100%;
     height: 100%;
@@ -12,7 +22,7 @@
 }
 
 .swiper-container-ico .swiper-slide{
-    padding: 60px 0px;
+    padding: 40px 10px;
 }
 .parallax-bg {
     position: absolute;
@@ -31,7 +41,7 @@
 .swiper-slide .title, .swiper-slide .title a {
   color: #ccc;
   padding-top: 1%;
-    font-size: 32px;
+    font-size: 3.5vh;
     font-weight: 300;
 
 }
@@ -39,7 +49,7 @@
 
   padding-top: 5%;
   color: #16a085;
-    font-size: 19px;
+    font-size: 2vh;
 
 
 }
@@ -47,7 +57,7 @@
 .swiper-slide .xxx{
 display: inline-block;
 width: 50%;
-height: 50vh;
+height: 40vh;
 background-size:cover;
 background-repeat: no-repeat;
 background-position: 50% 50%;
@@ -131,11 +141,11 @@ float: right;
       font-size: 26px;
   }
   .swiper-slide .subtitle {
-      font-size: 15px;
+      font-size: 13px;
   }
 
   .swiper-container-ico .swiper-slide{
-      padding: 4vw 6vw;
+      padding: 3vw 4vw;
   }
 
 }

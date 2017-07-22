@@ -64,16 +64,22 @@
   <div class="mask-content"></div>
 
 
-<div class="mainbutton" id="menu">
-
-  <a href="/projects/"><button type="button" class="btn btn-info">ПРОЕКТЫ</button></a>
-  <a href="/news/"><button type="button" class="btn btn-info">НОВОСТИ</button></a>
-  <a href="/services/"><button type="button" class="btn btn-info">УСЛУГИ</button></a>
-  <a href="/"><button type="button" class="btn btn-info">КОНТАКТЫ</button></a>
-  <a href="/"><button type="button" class="btn btn-info">О НАС</button></a>
 
 
-</div>
+<nav class="navbar navbar-inverse ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">    <img src="{% static 'gammaukr/img/logo.png' %}" id = 'blabla'></a>
+    </div>
+    <ul class="navx navbar-navx">
+      <li><a href="/projects/">ПРОЕКТЫ</a></li>
+      <li><a href="/news/">НОВОСТИ</a></li>
+      <li><a href="/services/">УСЛУГИ</a></li>
+      <li><a href="/">КОНТАКТЫ</a></li>
+      <li><a href="/">О НАС</a></li>
+    </ul>
+  </div>
+</nav>
 
 
   <div class="mainblock" >
@@ -82,6 +88,8 @@
     {% endblock %}
 
   </div>
+
+  
 
   {% block filter %}
   {% endblock %}
@@ -94,6 +102,25 @@
 
   {% block ico %}
   {% endblock %}
+
+  <nav class="navbar navbar-inverse footer">
+    <div class="container-fluid">
+      <ul class="navx navbar-navx">
+        <div class="lili">
+          <li id="list">+38 (044) 516-54-77 </li>
+          <li id="list">+38 (044) 516-54-77 </li>
+          <li id="list">+38 (044) 516-54-77 </li>
+        </div>
+
+        <div class="imim">
+          <a href="/" id="icc"><img src="{% static 'gammaukr/img/f.png' %}" id = 'blabla'></a>
+          <a href="/" id="icc"><img src="{% static 'gammaukr/img/y.png' %}" id = 'blabla'></a>
+          <a href="/" id="icc"><img src="{% static 'gammaukr/img/g.png' %}" id = 'blabla'></a>
+        </div>
+      </ul>
+    </div>
+  </nav>
+
 
     <!-- jQuery -->
     <script src="static/gammaukr/js/jquery.js"></script>
@@ -112,7 +139,7 @@
 
           paginationClickable: true,
 
-          slidesPerView: 12,
+          slidesPerView: 15,
           autoplay: 1500,
 
 

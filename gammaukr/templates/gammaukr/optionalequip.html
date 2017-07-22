@@ -1,0 +1,101 @@
+{% extends "gammaukr/index.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+
+  <link rel="stylesheet" href="{% static 'gammaukr/css/projtemp.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'gammaukr/css/mainpage.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'gammaukr/css/projectbox.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'gammaukr/css/serv.css' %}" type = "text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{% endblock %}
+
+{% block name %}
+
+<h2 class="una"><a href="/services/"> ◄ назад ко всем услугам</a></h2>
+
+{% endblock %}
+
+
+{% block filter %}
+
+      {% for S in Services %}
+                <h1 class="unn">{{S.name}}</h1>
+      {% endfor %}
+
+
+{% endblock %}
+
+{% block content %}
+    <div class="projecttemp">
+      <div class="row">
+
+        <div class="col-sm-12 unoproject">
+          <div class="unobox">
+            <h1 class="unn">Дополнительное оборудование</h1>
+            <h3> Компания «Гамма-Украина» также предоставляет дополнительное оборудование, а именно:</h3>
+
+            <p style="color:#16a085;"> -  Ксеноновые, светодиодные лампы</p>
+            <p style="color:#16a085;"> -  Обвесы</p>
+            <p style="color:#16a085;"> -  СГУ</p>
+            <p style="color:#16a085;"> -  Датчики парковки</p>
+            <p style="color:#16a085;"> -  Дополнительная оптика</p>
+            <p style="color:#16a085;"> -  Подогрев сидений</p>
+            <p style="color:#16a085;"> -  Подогрев зеркал</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+<h2 class="una"><a href="/projectservices/7/" >  Посмотреть готовые проекты  </a></h2>
+
+    <script>
+
+</script>
+{% endblock %}
+
+{% block ico %}
+
+<div class="mainblock" style="background-color:transparent; width:100%;">
+  <div class="swiper-container-ico">
+      <div class="swiper-wrapper">
+        {% for M in Models %}
+
+              <div class="swiper-slide" >
+                <a href="{% url 'projectcar' pk=M.pk %}">
+                  <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+                  </div>
+                </a>
+              </div>
+
+        {% endfor %}
+        {% for M in Models %}
+
+              <div class="swiper-slide" >
+                <a href="{% url 'projectcar' pk=M.pk %}">
+                  <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+                  </div>
+                </a>
+              </div>
+
+        {% endfor %}
+        {% for M in Models %}
+
+              <div class="swiper-slide" >
+                <a href="{% url 'projectcar' pk=M.pk %}">
+                  <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+                  </div>
+                </a>
+              </div>
+
+        {% endfor %}
+        </div>
+  </div>
+
+</div>
+
+{% endblock %}

@@ -59,7 +59,29 @@ def service(request, pk):
         'Services' : Services.objects.filter(pk=pk),
         'Models' : Models.objects.all(),
     }
-    return render(request, 'gammaukr/service.html', content)
+
+    if (pk=="1"):
+
+        return render(request, 'gammaukr/vip.html', content)
+
+    elif (pk=="2"):
+        return render(request, 'gammaukr/media.html', content)
+
+    elif (pk=="3"):
+        return render(request, 'gammaukr/security.html', content)
+
+    elif (pk=="4"):
+        return render(request, 'gammaukr/tuning.html', content)
+
+    elif (pk=="5"):
+        return render(request, 'gammaukr/toning.html', content)
+
+    elif (pk=="6"):
+        return render(request, 'gammaukr/tuningout.html', content)
+
+    else: return render(request, 'gammaukr/optionalequip.html', content)
+
+
 
 def news(request):
     content = {
