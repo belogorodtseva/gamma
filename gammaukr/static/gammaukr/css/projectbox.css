@@ -3,7 +3,7 @@
 }
 
 .unoproject{
-  background: #191919;
+  background: #ddd;
   margin: 1% auto;
   margin-left: 1%;
 
@@ -21,7 +21,7 @@
 }
 
 .unobox p {
-  color: #ccc;
+  color: #191919;
 font-size: 1.2vw;
 font-weight: lighter;
 width: 49%;
@@ -30,7 +30,7 @@ margin-top: 2%;
 }
 
 .unobox h3 {
-  color: #ccc;
+  color: #191919;
 font-size: 1.2vw;
 font-weight: lighter;
 width: 100%;
@@ -63,7 +63,7 @@ float: left;
 
 @media(max-width:500px) {
   .unoproject{
-    background: #191919;
+    background: #ddd;
     margin: 1% auto;
     margin-left: 1%;
 
@@ -79,7 +79,7 @@ float: left;
   }
 
   .unobox p {
-    color: #ccc;
+    color: #191919;
   font-size: 3.2vw;
   font-weight: lighter;
   width: 100%;
@@ -88,7 +88,7 @@ float: left;
   }
 
   .unobox h3 {
-    color: #ccc;
+    color: #191919;
   font-size: 3.2vw;
   font-weight: lighter;
   width: 100%;

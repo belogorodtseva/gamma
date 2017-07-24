@@ -1,23 +1,32 @@
+
+
+
 .unobox h3{
   text-indent: 2vw; /* Отступ первой строки в пикселах */
 
 }
 
 table {
+  color: #191919;
 
     border-collapse: collapse;
     width: 100%;
 }
 
 td, th {
-    border: 1px solid #ccc;
+    border: 1px solid #191919;
     text-align: left;
     padding: 8px;
 }
 
-tr:nth-child(even) {
-    background-color: #000;
+
+
+
+.unoproject{
+  background-color: #ddd;
 }
+
+
 
 
 
@@ -60,4 +69,13 @@ tr:nth-child(even) {
   }
 
 
+}
+
+
+.colorp{
+  color:#02604d;
+}
+
+.colorp p{
+  color:#02604d;
 }

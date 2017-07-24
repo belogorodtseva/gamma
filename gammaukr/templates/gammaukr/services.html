@@ -68,12 +68,14 @@
       <div class="row">
         {% for S in Services %}
         <div class="col-sm-4 sproject">
+          <a href="{% url 'service' pk=S.pk %}">
             <div class="sphoto">
               <img class="simg"  src="{{ S.photo.url }}" alt="">
             </div>
             <div class="sname">
-              <a href="{% url 'service' pk=S.pk %}"> {{S.name}} </a>
+               <a href="{% url 'service' pk=S.pk %}">{{S.name}} </a>
             </div>
+            </a>
         </div>
         {% endfor %}
       </div>
