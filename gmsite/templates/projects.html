@@ -1,0 +1,94 @@
+{% extends "all.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'css/projects.css' %}" type = "text/css"/>
+  <title>Проекты | Гама Украина</title>
+{% endblock %}
+
+{% block mainin %}
+
+
+  <h1>ПРОЕКТЫ</h1>
+
+  <div class="newsblock">
+
+      {% for P in Projects %}
+
+      <div class="col-sm-4">
+        <div class="unoblock" style="background-image:url({{ P.photo.url }});">
+          <div class="projectcontent">
+            <a href="{% url 'projects' %}" class="biga"> {{P.name}} </a>
+          </div>
+        </div>
+      </div>
+
+
+      {% endfor %}
+
+      <div class="pagination">
+         <span class="step-links">
+             {% if Projects.has_previous %}
+                 <a href="?page={{ Projects.previous_page_number }}">назад</a>
+             {% endif %}
+
+             <span class="current">
+                 страница {{ Projects.number }} из {{ Projects.paginator.num_pages }}
+             </span>
+
+             {% if Projects.has_next %}
+                 <a href="?page={{ Projects.next_page_number }}">вперед</a>
+             {% endif %}
+         </span>
+     </div>
+
+
+  </div>
+
+  <!-- Swiper -->
+  <div class="swiper-models">
+    <div class="swiper-container swiper2">
+      <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background-image: url(../static/img/merc.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/bmw.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/ford.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/skoda.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/pego.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/toyota.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/merc.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/bmw.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/ford.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/skoda.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/pego.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/toyota.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/merc.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/bmw.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/ford.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/skoda.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/pego.png)"></div>
+          <div class="swiper-slide" style="background-image: url(../static/img/toyota.png)"></div>
+      </div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next swiper-button-next2 swiper-button-black"></div>
+      <div class="swiper-button-prev swiper-button-prev2 swiper-button-black"></div>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+{% block scriptin %}
+<script src="/static/js/swiper.min.js"></script>
+<script>
+  var swiper2 = new Swiper('.swiper2', {
+    slidesPerView: 12,
+    spaceBetween: 30,
+    slidesPerGroup: 12,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    nextButton: '.swiper-button-next2',
+    prevButton: '.swiper-button-prev2',
+  });
+</script>
+{% endblock %}

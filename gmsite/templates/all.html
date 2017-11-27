@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  {% load staticfiles %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/all.css' %}" />
+  <script src="/static/js/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  {% block headin %}
+  {% endblock %}
+
+  <style>
+  @font-face {
+    font-family: Archive;
+    src: local("Archive"), url("{% static 'fonts/AvantGarde.otf' %}");
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <nav id="navbar">
+    <ul>
+      <div class="logo">
+        <a href="/">
+          <img src="{% static 'img/logo_gamma.png' %}">
+        </a>
+      </div>
+      <li><a href="/projects/">Проекты</a></li>
+      <li><a href="/news/">Новости</a></li>
+      <li class="sub-menu-parent">
+        <a>Услуги</a>
+        <ul class="sub-menu">
+            <li><a href="#1">VIP-салоны</a></li>
+            <li><a href="#2">Внешний тюнинг</a></li>
+            <li><a href="#3">Пошив салона</a></li>
+            <li><a href="#1">Охранные и противоугонные с-мы</a></li>
+            <li><a href="#2">Мультимедийные системы</a></li>
+            <li><a href="#3">Дополнительное оборудование</a></li>
+            <li><a href="#1">Тонирование, поклейка пленки</a></li>
+            <li><a href="#2">Шумоизоляция салона</a></li>
+            <li><a href="#3">Переоборудование трансп. ср-в</a></li>
+        </ul>
+      </li>
+      <li><a href="/galleries/">Галерея</a></li>
+      <li class="sub-menu-parent">
+        <a>Компания</a>
+        <ul class="sub-menu">
+            <li><a href="#1">О нас</a></li>
+            <li><a href="#2">Контакты</a></li>
+            <li><a href="#3">Вакансии</a></li>
+        </ul>
+      </li>
+      <li><a href="/contact/">Спроси нас</a></li>
+    </ul>
+  </nav>
+  <nav id='navigation'>
+        <a href="#" id="toggle">=</a>
+        <ul>
+          <li><a href="/projects/">Проекты</a></li>
+          <li><a href="/news/">Новости</a></li>
+          <li class="sub-menu-parent">
+            <a>Услуги</a>
+            <ul class="sub-menu">
+                <li><a href="#1">VIP-салоны</a></li>
+                <li><a href="#2">Внешний тюнинг</a></li>
+                <li><a href="#3">Пошив салона</a></li>
+                <li><a href="#1">Охранные и противоугонные с-мы</a></li>
+                <li><a href="#2">Мультимедийные системы</a></li>
+                <li><a href="#3">Дополнительное оборудование</a></li>
+                <li><a href="#1">Тонирование, поклейка пленки</a></li>
+                <li><a href="#2">Шумоизоляция салона</a></li>
+                <li><a href="#3">Переоборудование трансп. ср-в</a></li>
+            </ul>
+          </li>
+          <li><a href="/galleries/">Галерея</a></li>
+          <li class="sub-menu-parent">
+            <a>Компания</a>
+            <ul class="sub-menu">
+                <li><a href="#1">О нас</a></li>
+                <li><a href="#2">Контакты</a></li>
+                <li><a href="#3">Вакансии</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact/">Спроси нас</a></li>
+        </ul>
+    </nav>
+  {% block mainin %}
+  {% endblock %}
+
+  <footer>
+    <div class="footer-content">
+      <div class="numbers">
+        <p>&#9742;   +380XXXXXXX </p>
+        <p>&#9742;   +380XXXXXXX </p>
+        <p>&#9742;   +380XXXXXXX </p>
+      </div>
+      <div class="adress">
+        <h3>Адрес</h3>
+        <p>Киев, пр. Освободителей (Визволителів) д.1</p>
+        <h3>Время работы</h3>
+        <p><strong>ПН-ПТ</strong>9:00-19:00</p>
+        <p><strong>CБ</strong>9:00-14:00</p>
+      </div>
+      <div class="links">
+        <a href="/" id="icc"><img src="{% static 'img/f.png' %}" id = 'blabla'></a>
+        <a href="/" id="icc"><img src="{% static 'img/y.png' %}" id = 'blabla'></a>
+        <a href="/" id="icc"><img src="{% static 'img/g.png' %}" id = 'blabla'></a>
+      </div>
+    </div>
+  </footer>
+  <script>
+  $('nav a#toggle').click(function() {
+    $('ul').slideToggle(200, function() {
+      // Animation complete.
+    });
+  });
+  </script>
+
+  {% block scriptin %}
+
+
+  {% endblock %}
+
+</body>
+
+</html>

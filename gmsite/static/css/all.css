@@ -1,0 +1,201 @@
+body {
+  background-color: #f3f3f3;
+  color: #272727;
+  font-family: Archive;
+  font-size: 0.8vw;
+}
+
+#navbar img {
+  float: left;
+  height: 5vh;
+}
+
+#navbar .logo {
+  float: left;
+}
+
+#navbar .sub-menu-parent {
+  position: relative;
+}
+
+#navbar .sub-menu {
+  visibility: hidden; /* hides sub-menu */
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 13vw;
+  transform: translateY(-2em);
+  z-index: -1;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+  text-align: center;
+  background-color: #272727;
+}
+
+#navbar .sub-menu li {
+  border-top: 1px solid #f3f3f3;
+}
+
+#navbar .sub-menu-parent:hover .sub-menu {
+  visibility: visible; /* shows sub-menu */
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0%);
+  transition-delay: 0s, 0s, 0.3s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+}
+
+#navbar {
+  background-color: #272727;
+  box-sizing: border-box;
+
+  opacity: 0.9;
+  height: 7vh;
+  z-index: 333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#navbar:hover {
+  opacity: 1;
+}
+
+#navbar a {
+  color: #f3f3f3;
+  display: block;
+  padding: 0.9em 0.9em;
+  text-decoration: none;
+}
+#navbar a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+#navbar ul,
+#navbar ul li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+#navbar > ul {
+  background-color: #272727;
+  text-align: right;
+  max-width: 1100px;
+  margin: 0px auto;
+}
+#navbar > ul > li {
+  display: inline-block;
+
+  padding-top: 1vh;
+  height: 7vh;
+}
+#navbar > ul > li:first-child {
+  border-left: none;
+}
+
+#navigation {
+  display: none;
+}
+
+
+
+footer {
+  width: 100%;
+  background-color: #272727;
+  opacity: 0.9;
+  color: #f3f3f3;
+  margin-top: 5vh;
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.adress, .numbers, .links {
+  display: inline-block;
+  width: 33%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+
+.adress {
+  text-align: center;
+}
+
+
+.links img {
+    float: right;
+    margin: 2%;
+    width: 5vh;
+    height: auto;
+    opacity: 0.8;
+}
+
+.links img:hover {
+    opacity: 1;
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  //CSS
+
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  //CSS
+
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media screen and (max-width: 767px) {
+
+  body {
+    font-size: 2.8vw;
+  }
+
+  #navbar {
+    display: none;
+  }
+
+  #navigation {
+    display: block;
+  }
+
+  #toggle {
+  font-size: 24px;
+  }
+
+  nav {
+    background-color: #333;
+    text-align: center;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  a {
+    color: #ccc; text-decoration: none;
+  }
+
+
+}
