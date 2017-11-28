@@ -1,0 +1,87 @@
+{% extends "all.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'css/projects.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'css/models.css' %}" type = "text/css"/>
+  <title>Проекты | Гама Украина</title>
+{% endblock %}
+
+{% block mainin %}
+
+  <h1>{% for N in Name %}{{N.name}}{% endfor %}</h1>
+
+  <div class="nameblock"><h2>ПРОЕКТЫ</h2></div>
+
+  <div class="newsblock">
+
+      {% for P in Projects %}
+
+      <div class="col-sm-4">
+        <div class="unoblock" style="background-image:url({{ P.photo.url }});">
+          <div class="projectcontent">
+            <a href="{% url 'projects' %}" class="biga"> {{P.name}} </a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+  </div>
+
+  <div class="nameblock"><h2>НОВОСТИ</h2></div>
+
+  <div class="newsblock">
+
+      {% for P in News %}
+
+      <div class="col-sm-4">
+        <div class="unoblock" style="background-image:url({{ P.photo.url }});">
+          <div class="projectcontent">
+            <a href="{% url 'projects' %}" class="biga"> {{P.name}} </a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+  </div>
+
+  <div class="nameblock"><h2>ГАЛЛЕРЕЯ</h2></div>
+
+  <div class="newsblock" style="padding-bottom:4vh;">
+
+      {% for P in Gallery %}
+
+      <div class="col-sm-4">
+        <div class="unoblock" style="background-image:url({{ P.photo.url }});">
+          <div class="projectcontent">
+            <a href="{% url 'projects' %}" class="biga"> {{P.name}} </a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+  </div>
+
+
+
+
+{% endblock %}
+
+{% block scriptin %}
+<script src="/static/js/swiper.min.js"></script>
+<script>
+  var swiper2 = new Swiper('.swiper2', {
+    slidesPerView: 12,
+    spaceBetween: 30,
+    slidesPerGroup: 12,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    nextButton: '.swiper-button-next2',
+    prevButton: '.swiper-button-prev2',
+  });
+</script>
+{% endblock %}

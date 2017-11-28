@@ -8,13 +8,14 @@ class Models(models.Model):
         return self.name
 
 class Services(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=50)
     photo = models.FileField(null=False)
     def __str__(self):
         return self.name
 
 class ServicesSecond(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=50)
+    text = models.TextField(blank=True, null=True)
     photo = models.FileField(null=False)
     service = models.ForeignKey(Services, on_delete=models.CASCADE)
     def __str__(self):

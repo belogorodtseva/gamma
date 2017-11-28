@@ -38,15 +38,9 @@
       <li class="sub-menu-parent">
         <a>Услуги</a>
         <ul class="sub-menu">
-            <li><a href="#1">VIP-салоны</a></li>
-            <li><a href="#2">Внешний тюнинг</a></li>
-            <li><a href="#3">Пошив салона</a></li>
-            <li><a href="#1">Охранные и противоугонные с-мы</a></li>
-            <li><a href="#2">Мультимедийные системы</a></li>
-            <li><a href="#3">Дополнительное оборудование</a></li>
-            <li><a href="#1">Тонирование, поклейка пленки</a></li>
-            <li><a href="#2">Шумоизоляция салона</a></li>
-            <li><a href="#3">Переоборудование трансп. ср-в</a></li>
+          {% for S in Services %}
+            <li><a href="{% url 'services' pk=S.pk %}">{{S.name}}</a></li>
+          {% endfor %}
         </ul>
       </li>
       <li><a href="/galleries/">Галерея</a></li>

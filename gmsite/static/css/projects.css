@@ -3,7 +3,6 @@
   box-sizing: border-box;
   margin-bottom: 0;
   opacity: 0.9;
-
 }
 
 .swiper-models:hover {
@@ -41,12 +40,9 @@
   background-size: contain;
 }
 
-
 .newsblock {
   max-width: 1100px;
   margin: 0px auto;
-
-
 }
 
 .unoblock {
@@ -86,7 +82,7 @@
 
 h1 {
   margin-top: 10vh;
-  font-size: 4.5vh;
+  font-size: 4vh;
   color: #189185;
   text-align: center;
   width: 100%;

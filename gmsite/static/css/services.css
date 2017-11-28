@@ -1,0 +1,99 @@
+a {
+  color: #272727;
+}
+
+a:hover {
+  color: #272727;
+  text-decoration: none;
+}
+
+.servicesblock {
+  max-width: 1100px;
+  margin: 0px auto;
+}
+
+h1 {
+  margin-top: 10vh;
+  font-size: 4vh;
+  color: #272727;
+  text-align: center;
+  width: 100%;
+}
+
+h2 {
+  color: #189185;
+  font-size: 3vh;
+}
+
+h2:hover {
+  color: #272727;
+}
+
+.service {
+  width: 100%;
+  display: inline-block;
+  margin-top: 1vh;
+}
+
+.servicephoto {
+  width: 33%;
+  float: left;
+  margin-top: 30px;
+  height: 15vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.servicecontent {
+  width: 66%;
+  float: right;
+}
+
+.servicecontent p {
+  border-left: 5px solid #189185;
+  background-color: #2727271c;
+  padding: 1.5vh;
+  text-indent: 1.7vh; /* Отступ первой строки */
+  text-align: justify; /* Выравнивание по ширине */
+}
+
+.second .servicecontent {
+  float: left;
+}
+
+.second .servicecontent p {
+  border-left: 0;
+  border-right: 5px solid #189185;
+  float: right;
+}
+
+.second h2 {
+  text-align: right;
+  width: 100%;
+}
+
+.second .servicephoto {
+  float: right;
+}
+
+.second .button {
+  float: right;
+}
+
+.button {
+    background-color: #189185;
+    border: none;
+    color: #f3f3f3;
+    padding: 1vh;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2vh;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.button:hover {
+    opacity: 1;
+}

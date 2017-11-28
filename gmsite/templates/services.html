@@ -1,0 +1,44 @@
+{% extends "all.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'css/services.css' %}" type = "text/css"/>
+  <title>Услуги | Гама Украина</title>
+{% endblock %}
+
+{% block mainin %}
+
+
+  <h1>{% for N in Name %}{{N.name}}{% endfor %}</h1>
+
+  <div class="servicesblock">
+
+      {% for S in ServicesSecond %}
+      <a class="seruno" href="{% url 'service' pk=S.pk %}">
+        <div class="service">
+          <div class="servicephoto" style="background-image:url({{ S.photo.url }});">
+          </div>
+          <div class="servicecontent">
+            <h2>{{S.name}}</h2>
+            <p>{{S.text}}</p>
+            <button class="button">Подробнее</button>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+
+  </div>
+
+
+
+{% endblock %}
+
+{% block scriptin %}
+<script src="/static/js/swiper.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $( ".servicesblock .seruno:nth-child(2n)" ).addClass("second");
+  });
+</script>
+{% endblock %}
