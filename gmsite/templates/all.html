@@ -26,7 +26,7 @@
 
 <body>
 
-  <nav id="navbar">
+  <!--<nav id="navbar">
     <ul>
       <div class="logo">
         <a href="/">
@@ -54,38 +54,43 @@
       </li>
       <li><a href="/contact/">Спроси нас</a></li>
     </ul>
-  </nav>
-  <nav id='navigation'>
-        <a href="#" id="toggle">=</a>
-        <ul>
-          <li><a href="/projects/">Проекты</a></li>
-          <li><a href="/news/">Новости</a></li>
-          <li class="sub-menu-parent">
-            <a>Услуги</a>
-            <ul class="sub-menu">
-                <li><a href="#1">VIP-салоны</a></li>
-                <li><a href="#2">Внешний тюнинг</a></li>
-                <li><a href="#3">Пошив салона</a></li>
-                <li><a href="#1">Охранные и противоугонные с-мы</a></li>
-                <li><a href="#2">Мультимедийные системы</a></li>
-                <li><a href="#3">Дополнительное оборудование</a></li>
-                <li><a href="#1">Тонирование, поклейка пленки</a></li>
-                <li><a href="#2">Шумоизоляция салона</a></li>
-                <li><a href="#3">Переоборудование трансп. ср-в</a></li>
-            </ul>
-          </li>
-          <li><a href="/galleries/">Галерея</a></li>
-          <li class="sub-menu-parent">
-            <a>Компания</a>
-            <ul class="sub-menu">
-                <li><a href="#1">О нас</a></li>
-                <li><a href="#2">Контакты</a></li>
-                <li><a href="#3">Вакансии</a></li>
-            </ul>
-          </li>
-          <li><a href="/contact/">Спроси нас</a></li>
-        </ul>
-    </nav>
+  </nav>-->
+  <nav id="nav" role="navigation">
+    <div class="logo">
+      <a href="/">
+        <img src="{% static 'img/logo_gamma.png' %}">
+      </a>
+    </div>
+    <a href="#nav" title="Show navigation">
+      <img src="{% static 'img/menu.png' %}">
+    </a>
+    <a href="#" title="Hide navigation">
+      <img src="{% static 'img/close.png' %}">
+    </a>
+    <ul>
+        <li><a href="/projects/">Проекты</a></li>
+        <li><a href="/news/">Новости</a></li>
+        <li>
+          <a aria-haspopup="true">Услуги</a>
+          <ul>
+            {% for S in Services %}
+              <li><a href="{% url 'services' pk=S.pk %}">{{S.name}}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+        <li><a href="/galleries/">Галерея</a></li>
+        <li>
+          <a aria-haspopup="true">Компания</a>
+          <ul>
+              <li><a href="#1">О нас</a></li>
+              <li><a href="#2">Контакты</a></li>
+              <li><a href="#3">Вакансии</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact/">Спроси нас</a></li>
+    </ul>
+</nav>
+
   {% block mainin %}
   {% endblock %}
 
@@ -110,12 +115,13 @@
       </div>
     </div>
   </footer>
+
+  <script src="/static/js/hh.js"></script>
   <script>
-  $('nav a#toggle').click(function() {
-    $('ul').slideToggle(200, function() {
-      // Animation complete.
-    });
-  });
+  	$( function()
+  	{
+  		$( '#nav li:has(ul)' ).doubleTapToGo();
+  	});
   </script>
 
   {% block scriptin %}

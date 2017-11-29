@@ -114,7 +114,13 @@
 {% endblock %}
 
 {% block scriptin %}
+
   <script src="/static/js/swiper.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $( ".newsblock .col-sm-4:nth-child(2n)" ).addClass("secondNews");
+    });
+  </script>
   <script>
   var swiper1 = new Swiper('.swiper1', {
     spaceBetween: 30,
@@ -123,15 +129,39 @@
     pagination: '.swiper-pagination1',
     paginationClickable: true,
   });
-  var swiper2 = new Swiper('.swiper2', {
-    slidesPerView: 12,
-    spaceBetween: 30,
-    slidesPerGroup: 12,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    nextButton: '.swiper-button-next2',
-    prevButton: '.swiper-button-prev2',
-  });
+  if(window.screen.width > 1024) {
+    var swiper2 = new Swiper('.swiper2', {
+      slidesPerView: 12,
+      spaceBetween: 30,
+      slidesPerGroup: 12,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      nextButton: '.swiper-button-next2',
+      prevButton: '.swiper-button-prev2',
+    });
+  };
+  if(window.screen.width <= 1024 && window.screen.width > 800) {
+    var swiper2 = new Swiper('.swiper2', {
+      slidesPerView: 8,
+      spaceBetween: 30,
+      slidesPerGroup: 8,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      nextButton: '.swiper-button-next2',
+      prevButton: '.swiper-button-prev2',
+    });
+  };
+  if(window.screen.width < 800) {
+    var swiper2 = new Swiper('.swiper2', {
+      slidesPerView: 6,
+      spaceBetween: 30,
+      slidesPerGroup: 6,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      nextButton: '.swiper-button-next2',
+      prevButton: '.swiper-button-prev2',
+    });
+  };
   </script>
 
 {% endblock %}

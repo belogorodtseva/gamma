@@ -158,7 +158,6 @@
   margin: 0px auto;
   width: 100%;
   height: 100%;
-  display: -webkit-box;
 }
 
 .unoblock {
@@ -193,4 +192,68 @@
 
 .projectcontent a:hover {
   text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) and (orientation: portrait){
+  .swiper1 {
+    height: 30vh;
+  }
+
+  .swiper1 .slide-text {
+    position: absolute;
+    bottom: 5vh;
+    right: 0;
+    left: auto;
+  }
+
+  .swiper1 .swiper-slide h2 {
+    font-size: 3vh;
+    padding: 1vh;
+  }
+
+  .abouttext p {
+    font-size: 2vh;
+    padding: 2vh;
+  }
+
+  .col-sm-4 {
+    width: 100%;
+    margin: 3vh auto;
+    padding-right: 3vh;
+    padding-left: 0;
+  }
+
+  .projectcontent {
+    left: 12vh;
+    bottom: 3vh;
+    right: 0;
+    border-left: 1vh solid #f3f3f3;
+    border-right: 0;
+  }
+
+  .secondNews .projectcontent {
+    left: 0;
+    bottom: 3vh;
+    right: 12vh;
+    text-align: right;
+    border-right: 1vh solid #f3f3f3;
+    border-left: 0;
+  }
+
+  .secondNews {
+    padding-right: 0;
+    padding-left: 3vh;
+  }
+
+  .unoblock {
+    height: 35vh;
+  }
+
+  .projectcontent {
+    max-height: 14vh;
+  }
+
+  .projectcontent a {
+    font-size: 2.5vh;
+  }
 }

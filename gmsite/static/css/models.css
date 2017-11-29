@@ -13,6 +13,7 @@ h1 {
   padding-left: 15px;
   margin-bottom: -20px;
   margin-top: 4vh;
+  display: flex;
 }
 
 .nameblock h2 {
@@ -21,6 +22,49 @@ h1 {
   text-align: left;
 }
 
-.newsblock {
-  display: flex;
+
+
+@media screen and (max-width: 1024px) and (orientation: portrait){
+
+  .col-sm-4 {
+    width: 100%;
+    margin: 3vh auto;
+    padding-right: 3vh;
+    padding-left: 0;
+  }
+
+  .projectcontent {
+    left: 12vh;
+    bottom: 3vh;
+    right: 0;
+    border-left: 1vh solid #f3f3f3;
+    border-right: 0;
+  }
+
+  .secondNews .projectcontent {
+    left: 0;
+    bottom: 3vh;
+    right: 12vh;
+    text-align: right;
+    border-right: 1vh solid #f3f3f3;
+    border-left: 0;
+  }
+
+  .secondNews {
+    padding-right: 0;
+    padding-left: 3vh;
+  }
+
+  .unoblock {
+    height: 35vh;
+  }
+
+  .projectcontent {
+    max-height: 14vh;
+  }
+
+  .projectcontent a {
+    font-size: 2.5vh;
+  }
+
 }
