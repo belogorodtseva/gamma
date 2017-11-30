@@ -8,7 +8,8 @@ h1 {
 }
 
 .nameblock {
-  width: 1100px;
+  max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
   padding-left: 15px;
   margin-bottom: -20px;
@@ -22,9 +23,13 @@ h1 {
   text-align: left;
 }
 
+@media screen and (max-width: 1024px) and (min-width : 768px) and (orientation: portrait){
+  
+
+}
 
 
-@media screen and (max-width: 1024px) and (orientation: portrait){
+@media screen and (max-width: 767px) and (orientation: portrait){
 
   .col-sm-4 {
     width: 100%;

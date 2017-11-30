@@ -110,7 +110,16 @@ footer {
   margin-top: 0;
 }
 
-@media screen and (max-width: 1024px) and (orientation: portrait){
+@media screen and (max-width: 1024px) and (min-width : 768px) and (orientation: portrait){
+
+  .unoblock {
+    height: 18vh;
+  }
+
+}
+
+
+@media screen and (max-width: 767px) and (orientation: portrait){
 
   .col-sm-4 {
     width: 100%;

@@ -25,8 +25,8 @@ SECRET_KEY = 'h(01h@%32_r72n23&%j^bnopx293)kvt7kp3lrln4fqkx#xa^t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gammaukr.pythonanywhere.com']
-
+# ALLOWED_HOSTS = ['gammaukr.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 

@@ -98,7 +98,25 @@ h2:hover {
     opacity: 1;
 }
 
-@media screen and (max-width: 1024px) and (orientation: portrait){
+@media screen and (max-width: 1024px) and (min-width : 768px) and (orientation: portrait){
+
+  .servicephoto {
+    width: 80%;
+    height: 35vh;
+  }
+
+  .servicecontent {
+    width: 80%;
+  }
+
+  .servicecontent h2 {
+    font-size: 3.4vh;
+  }
+}
+
+
+
+@media screen and (max-width: 767px) and (orientation: portrait){
 
   .servicephoto {
     width: 100%;

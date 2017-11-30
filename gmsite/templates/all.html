@@ -26,35 +26,7 @@
 
 <body>
 
-  <!--<nav id="navbar">
-    <ul>
-      <div class="logo">
-        <a href="/">
-          <img src="{% static 'img/logo_gamma.png' %}">
-        </a>
-      </div>
-      <li><a href="/projects/">Проекты</a></li>
-      <li><a href="/news/">Новости</a></li>
-      <li class="sub-menu-parent">
-        <a>Услуги</a>
-        <ul class="sub-menu">
-          {% for S in Services %}
-            <li><a href="{% url 'services' pk=S.pk %}">{{S.name}}</a></li>
-          {% endfor %}
-        </ul>
-      </li>
-      <li><a href="/galleries/">Галерея</a></li>
-      <li class="sub-menu-parent">
-        <a>Компания</a>
-        <ul class="sub-menu">
-            <li><a href="#1">О нас</a></li>
-            <li><a href="#2">Контакты</a></li>
-            <li><a href="#3">Вакансии</a></li>
-        </ul>
-      </li>
-      <li><a href="/contact/">Спроси нас</a></li>
-    </ul>
-  </nav>-->
+  <!--{% autoescape off %}{{S.text}}{% endautoescape %}-->
   <nav id="nav" role="navigation">
     <div class="logo">
       <a href="/">

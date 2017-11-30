@@ -194,7 +194,45 @@
   text-decoration: none;
 }
 
-@media screen and (max-width: 1024px) and (orientation: portrait){
+
+@media screen and (max-width: 1024px) and (min-width : 768px) and (orientation: portrait){
+
+  .swiper1 {
+    height: 30vh;
+  }
+
+  .swiper1 .slide-text {
+    position: absolute;
+    bottom: 5vh;
+    right: 0;
+    left: auto;
+  }
+
+  .swiper1 .swiper-slide h2 {
+    font-size: 3vh;
+    padding: 1vh;
+  }
+
+  .about {
+    padding: 1vh;
+  }
+
+  .unoblock {
+    height: 18vh;
+  }
+
+  .swiper-models {
+    margin-bottom: 0;
+  }
+
+  .about {
+    margin-bottom: 0;
+  }
+
+}
+
+@media screen and (max-width: 767px) and (orientation: portrait){
+
   .swiper1 {
     height: 30vh;
   }

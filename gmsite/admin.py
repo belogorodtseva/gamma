@@ -1,20 +1,20 @@
 from django.contrib import admin
 
-from gmsite.models import Projects,Models,Services,News,Gallery,Image,ServicesSecond,ImageGallery,HomePhoto
+from gmsite.models import Projects,Models,Services,News,Gallery,ImageBlock,ServicesSecond,ImageGallery
 
 admin.site.register(Models)
 
 admin.site.register(News)
 
-admin.site.register(HomePhoto)
 
 
-class ImageInline(admin.TabularInline):
-    model = Image
+
+class ImageBlockInline(admin.TabularInline):
+    model = ImageBlock
 
 class ProjectsAdmin(admin.ModelAdmin):
     inlines = [
-        ImageInline,
+        ImageBlockInline,
     ]
 
 class ServicesSecondInline(admin.TabularInline):
@@ -35,7 +35,7 @@ class GalleryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Projects, ProjectsAdmin)
-admin.site.register(Image)
+admin.site.register(ImageBlock)
 
 admin.site.register(Services, ServicesAdmin)
 admin.site.register(ServicesSecond)

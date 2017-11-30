@@ -1,0 +1,76 @@
+.projectblock {
+  max-width: 1100px;
+  margin: 0px auto;
+  margin-top: 10vh;
+}
+
+.projectblock #photos {
+  width: 100%;
+  display: inline-block;
+}
+
+.projectblock #photo1 {
+  width: 48%;
+  float: left;
+  height: 43vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 1%;
+}
+
+.projectblock #photo2 {
+  width: 48%;
+  float: left;
+  height: 43vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 1%;
+}
+
+
+
+.projectblock p {
+  width: 100%;
+  font-size: 2vh;
+  text-indent: 1.7vh; /* Отступ первой строки */
+  text-align: justify; /* Выравнивание по ширине */
+  padding: 1vh;
+}
+
+.projectblock h4 {
+  color: #189185;
+  padding-left: 2.7vh;
+}
+
+.projectblock h1 {
+  padding-left: 1vh;
+}
+
+@media screen and (max-width: 1024px) and (min-width : 768px) and (orientation: portrait){
+  .projectblock #photo1 {
+    height: 30vh;
+  }
+
+  .projectblock #photo2 {
+    height: 30vh;
+  }
+
+}
+
+@media screen and (max-width: 767px) and (orientation: portrait){
+
+
+  .projectblock #photo1 {
+    width: 100%;
+    height: 33vh;
+  }
+
+  .projectblock #photo2 {
+    width: 100%;
+    height: 33vh;
+  }
+
+
+}

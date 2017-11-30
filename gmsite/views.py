@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from gmsite.models import Projects,Models,Services,News,Gallery,Image,ServicesSecond,ImageGallery,HomePhoto
+from gmsite.models import Projects,Models,Services,News,Gallery,ImageBlock,ServicesSecond,ImageGallery
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
@@ -13,7 +13,6 @@ from django.shortcuts import render
 def index(request):
     content = {
         'News' : News.objects.all()[:3],
-        'Photos' : HomePhoto.objects.all(),
         'Models' : Models.objects.all(),
         'Services' : Services.objects.all(),
     }
@@ -65,9 +64,8 @@ def projects(request):
 
 def project(request, pk):
     content = {
-        'Models' : Models.objects.all(),
         'Project' : Projects.objects.filter(pk=pk),
-        'Image' : Image.objects.filter(project=pk),
+        'Image' : ImageBlock.objects.filter(project=pk),
         'Services' : Services.objects.all(),
     }
     return render(request, 'project.html', content)
