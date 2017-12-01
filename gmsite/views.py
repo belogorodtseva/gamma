@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from gmsite.models import Projects,Models,Services,News,Gallery,ImageBlock,ServicesSecond,ImageGallery
+from gmsite.models import Projects,Models,Services,News,Gallery,ImageBlock,ImageBlockNews,ServicesSecond,ImageGallery,ServicesSecondContent,ServicesSecondPriceTable,ServicesSecondPriceTableElement
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
@@ -27,8 +27,12 @@ def services(request, pk):
     return render(request, 'services.html', content)
 
 def service(request, pk):
+    pricetable = ServicesSecondPriceTable.objects.get(service=pk)
     content = {
-        'ServicesSecond' : ServicesSecond.objects.filter(service=pk),
+        'ServicesSecond' : ServicesSecond.objects.filter(pk=pk),
+        'Content' : ServicesSecondContent.objects.filter(service=pk),
+        'Price' : ServicesSecondPriceTable.objects.filter(service=pk),
+        'PriceElements' : ServicesSecondPriceTableElement.objects.filter(service=pricetable.pk),
         'Services' : Services.objects.all(),
     }
     return render(request, 'service.html', content)

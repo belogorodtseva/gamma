@@ -1,0 +1,67 @@
+{% extends "all.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'css/service.css' %}" type = "text/css"/>
+  <title>{% for N in ServicesSecond %}{{N.name}}{% endfor %} | Гама Украина</title>
+{% endblock %}
+
+{% block mainin %}
+
+
+  <div class="servicesecond">
+    <h1>{% for N in ServicesSecond %}{{N.name}}{% endfor %}</h1>
+      {% for C in Content %}
+        {% if C.text %}
+          <p>{% autoescape off %}{{C.text}}{% endautoescape %}</p>
+        {% endif %}
+        {% if C.photo %}
+          <div id="photos" style="background-image:url({{ C.photo.url }});">
+          </div>
+        {% endif %}
+      {% endfor %}
+      <h4>{% for N in Price %}{{N.name}}{% endfor %}</h4>
+      <table>
+          <tr id="tableheader">
+              <td rowspan="3">Наименование</td>
+              <td colspan="4">Стоимость</td>
+              <td rowspan="3">Примечание</td>
+          </tr>
+          <tr id="tableheader">
+              <td colspan="2">от</td>
+              <td colspan="2">до</td>
+          </tr>
+          <tr id="tableheader">
+              <td>у.е.</td>
+              <td>грн.</td>
+              <td>у.е.</td>
+              <td>грн.</td>
+          </tr>
+
+            {% for P in PriceElements %}
+              <tr>
+                <td>{{P.name}}</td>
+                <td>{{P.pricefrom}}</td>
+                <td>{{P.pricefrom}}</td>
+                <td>{{P.priceto}}</td>
+                <td>{{P.priceto}}</td>
+                <td>{{P.notes}}</td>
+              </tr>
+            {% endfor %}
+
+      </table>
+  </div>
+
+
+
+{% endblock %}
+
+{% block scriptin %}
+<script src="/static/js/swiper.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $( ".servicesblock .seruno:nth-child(2n)" ).addClass("second");
+  });
+</script>
+{% endblock %}

@@ -1,12 +1,8 @@
 from django.contrib import admin
 
-from gmsite.models import Projects,Models,Services,News,Gallery,ImageBlock,ServicesSecond,ImageGallery
+from gmsite.models import Projects,Models,Services,News,Gallery,ImageBlock,ImageBlockNews,ServicesSecond,ImageGallery,ServicesSecondContent,ServicesSecondPriceTable,ServicesSecondPriceTableElement
 
 admin.site.register(Models)
-
-admin.site.register(News)
-
-
 
 
 class ImageBlockInline(admin.TabularInline):
@@ -17,12 +13,36 @@ class ProjectsAdmin(admin.ModelAdmin):
         ImageBlockInline,
     ]
 
+class ImageBlockNewsInline(admin.TabularInline):
+    model = ImageBlockNews
+
+class NewsAdmin(admin.ModelAdmin):
+    inlines = [
+        ImageBlockNewsInline,
+    ]
+
 class ServicesSecondInline(admin.TabularInline):
     model = ServicesSecond
 
 class ServicesAdmin(admin.ModelAdmin):
     inlines = [
         ServicesSecondInline,
+    ]
+
+class ServicesSecondContentInline(admin.TabularInline):
+    model = ServicesSecondContent
+
+class ServicesSecondAdmin(admin.ModelAdmin):
+    inlines = [
+        ServicesSecondContentInline,
+    ]
+
+class ServicesSecondPriceTableElementInline(admin.TabularInline):
+    model = ServicesSecondPriceTableElement
+
+class ServicesSecondPriceTableAdmin(admin.ModelAdmin):
+    inlines = [
+        ServicesSecondPriceTableElementInline,
     ]
 
 class ImageGalleryInline(admin.TabularInline):
@@ -37,8 +57,15 @@ class GalleryAdmin(admin.ModelAdmin):
 admin.site.register(Projects, ProjectsAdmin)
 admin.site.register(ImageBlock)
 
+admin.site.register(News, NewsAdmin)
+admin.site.register(ImageBlockNews)
+
 admin.site.register(Services, ServicesAdmin)
-admin.site.register(ServicesSecond)
+admin.site.register(ServicesSecond, ServicesSecondAdmin)
+admin.site.register(ServicesSecondContent)
+
+admin.site.register(ServicesSecondPriceTable, ServicesSecondPriceTableAdmin)
+admin.site.register(ServicesSecondPriceTableElement)
 
 admin.site.register(Gallery, GalleryAdmin)
 admin.site.register(ImageGallery)
