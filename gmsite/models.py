@@ -13,39 +13,6 @@ class Services(models.Model):
     def __str__(self):
         return self.name
 
-class ServicesSecond(models.Model):
-    name = models.CharField(max_length=50)
-    text = models.TextField(blank=True, null=True)
-    photo = models.FileField(null=False)
-    service = models.ForeignKey(Services, on_delete=models.CASCADE)
-    def __str__(self):
-        return self.name
-
-class ServicesSecondContent(models.Model):
-    text = models.TextField(blank=True, null=True)
-    photo = models.FileField(blank=True, null=True)
-    service = models.ForeignKey(ServicesSecond, on_delete=models.CASCADE)
-    def __str__(self):
-        return self.text[:40]
-
-class ServicesSecondPriceTable(models.Model):
-    name = models.CharField(max_length=200)
-    service = models.ForeignKey(ServicesSecond, on_delete=models.CASCADE)
-    def __str__(self):
-        return self.name
-
-class ServicesSecondPriceTableElement(models.Model):
-    name = models.CharField(max_length=200)
-    pricefrom = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2)
-    priceto = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2)
-    notes = models.TextField(blank=True, null=True)
-    service = models.ForeignKey(ServicesSecondPriceTable, on_delete=models.CASCADE)
-    def __str__(self):
-        return self.name
-
-
-
-
 class Projects(models.Model):
     name = models.CharField(max_length=250)
     photo = models.FileField(null=True)
@@ -54,23 +21,35 @@ class Projects(models.Model):
     def __str__(self):
         return self.name
 
+class ServicesSecond(models.Model):
+    name = models.CharField(max_length=50)
+    text = models.TextField(blank=True, null=True)
+    photo = models.FileField(null=False)
+    service = models.ForeignKey(Services, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
+
+
+class ServicesSecondPriceTable(models.Model):
+    name = models.CharField(max_length=200)
+    service = models.ForeignKey(ServicesSecond, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
 class News(models.Model):
     name = models.CharField(max_length=250)
     photo = models.FileField(null=True)
     model = models.ForeignKey(Models, blank=True, null=True)
     start = models.BooleanField(default=False)
-    top = models.BooleanField(default=False)
 
     def __str__(self):
         startkey = ""
         topkey = ""
         if (self.start == True):
             startkey += "| НА ГЛАВНОЙ"
-        if (self.top == True):
-            topkey += "| ПОДНЯТЬ ВВЕРХ"
 
-        return '%s...  %s   %s ' % (str(self.name)[:40], startkey, topkey)
+
+        return '%s...  %s' % (str(self.name)[:25], startkey)
 
 class Gallery(models.Model):
     name = models.CharField(max_length=250, blank=True, null=True)
@@ -81,6 +60,25 @@ class Gallery(models.Model):
 
     def __str__(self):
         return self.name
+
+class ServicesSecondPriceTableElement(models.Model):
+    name = models.CharField(max_length=200)
+    pricefrom = models.DecimalField(blank=True, null=True, max_digits=10, decimal_places=2)
+    priceto = models.DecimalField(blank=True, null=True, max_digits=10, decimal_places=2)
+    notes = models.CharField(blank=True, null=True, max_length=300)
+    service = models.ForeignKey(ServicesSecondPriceTable, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
+
+class ServicesSecondContent(models.Model):
+    text = models.TextField(blank=True, null=True)
+    photo = models.FileField(blank=True, null=True)
+    service = models.ForeignKey(ServicesSecond, on_delete=models.CASCADE)
+    project = models.ForeignKey(Projects, blank=True, null=True)
+    news = models.ForeignKey(News, blank=True, null=True)
+    gallery = models.ForeignKey(Gallery, blank=True, null=True)
+    def __str__(self):
+        return self.text[:40]
 
 class ImageBlock(models.Model):
    project = models.ForeignKey(Projects, on_delete=models.CASCADE)

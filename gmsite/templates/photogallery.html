@@ -1,0 +1,78 @@
+{% extends "all.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'css/photogallery.css' %}" type = "text/css"/>
+  <title>{% for N in Gallery %}{{N.name}}{% endfor %} | Гама Украина</title>
+{% endblock %}
+
+{% block mainin %}
+
+  <h1>{% for N in Gallery %}{{N.name}}{% endfor %}</h1>
+  <h4>{% for N in Gallery %}{{N.text}}{% endfor %}</h4>
+
+
+
+    <div class="swiper-container gallery-top">
+      <div class="swiper-wrapper">
+        {% for P in Photo %}
+          <div class="swiper-slide" style="background-image:url({{ P.gimg.url }})"></div>
+        {% endfor %}
+      </div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next swiper-button-white"></div>
+      <div class="swiper-button-prev swiper-button-white"></div>
+    </div>
+
+    <div class="swiper-container gallery-thumbs">
+      <div class="swiper-wrapper">
+        {% for P in Photo %}
+          <div class="swiper-slide" style="background-image:url({{ P.gimg.url }})"></div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+  <h4>{% for N in Gallery %}
+    {% if N.service %}
+    Услуга: 
+    <a href="{% url 'services' pk=N.service.pk %}">
+    {{N.service}}</a>
+    {% endif %}
+    {% endfor %}</h4>
+
+
+
+{% endblock %}
+
+{% block scriptin %}
+<script src="/static/js/swipernew.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      centeredSlides: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+    });
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      touchRatio: 0.2,
+      slideToClickedSlide: true,
+    });
+    galleryTop.controller.control = galleryThumbs;
+    galleryThumbs.controller.control = galleryTop;
+
+  </script>
+
+{% endblock %}

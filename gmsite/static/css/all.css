@@ -25,9 +25,10 @@ h1 {
 #nav a {
   color: #f3f3f3;
   text-decoration: none;
+  opacity: 0.9;
 }
 #nav a:hover {
-  color: #fff;
+  opacity: 1;
   text-decoration: none;
 }
 
@@ -36,6 +37,7 @@ h1 {
   color: #f3f3f3;
   padding: 0.9em 0.9em;
   text-decoration: none;
+  font-size: 1.4vh;
 }
 
 #nav > ul {

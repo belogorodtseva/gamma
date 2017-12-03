@@ -1,0 +1,112 @@
+
+
+html, body {
+  position: relative;
+  height: 100%;
+}
+
+.unoblock {
+  margin-top: 30px;
+  height: 28vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+h1 {
+  margin-top: 10vh;
+  font-size: 4vh;
+  color: #189185;
+  text-align: center;
+  width: 100%;
+  margin-bottom: -15px;
+}
+
+h4 {
+  font-size: 2.3vh;
+  color: #272727;
+  text-indent: 1.7vh; /* Отступ первой строки */
+  text-align: justify; /* Выравнивание по ширине */
+  padding: 1vh;
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 2vh;
+}
+
+h4 a {
+  color: #189185;
+  font-size: 2.6vh;
+}
+
+h4 a:hover {
+  color: #189185;
+  text-decoration: none;
+}
+
+
+.swiper-container {
+  max-width: 1100px;
+  height: 300px;
+  margin: 0 auto;
+}
+.gallery-top .swiper-slide {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.gallery-top {
+  height: 60%;
+  width: 100%;
+  margin-top: 1vh;
+}
+.gallery-thumbs {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+.gallery-thumbs .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+  background-size: cover;
+  background-position: center;
+}
+.gallery-thumbs .swiper-slide-active {
+  opacity: 1;
+}
+
+
+
+
+
+
+footer {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 1024px) and (min-width : 768px) and (orientation: portrait){
+
+  .unoblock {
+    height: 18vh;
+  }
+
+}
+
+
+@media screen and (max-width: 767px) and (orientation: portrait){
+
+  .col-sm-4 {
+    width: 100%;
+    margin: 3vh auto;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+
+  .unoblock {
+    height: 35vh;
+  }
+
+}

@@ -20,9 +20,9 @@
 
       <div class="col-sm-4">
         <div class="unoblock" style="background-image:url({{ P.photo.url }});">
-          <div class="projectcontent">
-            <a href="{% url 'projects' %}" class="biga"> {{P.name}} </a>
-          </div>
+          <a href="{% url 'project' pk=P.pk %}" class="projectcontentlink"><div class="projectcontent">
+             {{P.name}}
+          </div></a>
         </div>
       </div>
 
@@ -38,9 +38,9 @@
 
       <div class="col-sm-4">
         <div class="unoblock" style="background-image:url({{ P.photo.url }});">
-          <div class="projectcontent">
-            <a href="{% url 'projects' %}" class="biga"> {{P.name}} </a>
-          </div>
+          <a href="{% url 'article' pk=P.pk %}" class="projectcontentlink"><div class="projectcontent">
+             {{P.name}}
+          </div></a>
         </div>
       </div>
 
@@ -56,9 +56,9 @@
 
       <div class="col-sm-4">
         <div class="unoblock" style="background-image:url({{ P.photo.url }});">
-          <div class="projectcontent">
-            <a href="{% url 'projects' %}" class="biga"> {{P.name}} </a>
-          </div>
+          <a href="{% url 'photogallery' pk=P.pk %}" class="projectcontentlink"><div class="projectcontent">
+             {{P.name}}
+          </div></a>
         </div>
       </div>
 

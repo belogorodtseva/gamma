@@ -74,8 +74,8 @@ def project(request, pk):
     }
     return render(request, 'project.html', content)
 
-def gallerys(request):
-    projectlist = Projects.objects.all().order_by("-id")
+def gallery(request):
+    projectlist = Gallery.objects.all().order_by("-id")
     paginator = Paginator(projectlist, 9)
     page = request.GET.get('page')
     try:
@@ -91,13 +91,13 @@ def gallerys(request):
         'Models' : Models.objects.all(),
         'Services' : Services.objects.all(),
     }
-    return render(request, 'gallerys.html', content)
+    return render(request, 'gallery.html', content)
 
 
 def photogallery(request, pk):
     content = {
         'Gallery' : Gallery.objects.filter(id=pk),
-        'Gallery_photo' : ImageGallery.objects.filter(gallery=pk),
+        'Photo' : ImageGallery.objects.filter(gallery=pk),
         'Services' : Services.objects.all(),
     }
     return render(request, 'photogallery.html', content)
@@ -105,7 +105,7 @@ def photogallery(request, pk):
 
 
 def news(request):
-    projectlist = Projects.objects.all().order_by("-id")
+    projectlist = News.objects.all().order_by("-id")
     paginator = Paginator(projectlist, 9)
     page = request.GET.get('page')
     try:
@@ -122,6 +122,14 @@ def news(request):
         'Services' : Services.objects.all(),
     }
     return render(request, 'news.html', content)
+
+def article(request, pk):
+    content = {
+        'News' : News.objects.filter(pk=pk),
+        'Image' : ImageBlockNews.objects.filter(news=pk),
+        'Services' : Services.objects.all(),
+    }
+    return render(request, 'article.html', content)
 
 
 def contact(request):

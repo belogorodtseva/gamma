@@ -14,7 +14,18 @@
     <h1>{% for N in ServicesSecond %}{{N.name}}{% endfor %}</h1>
       {% for C in Content %}
         {% if C.text %}
-          <p>{% autoescape off %}{{C.text}}{% endautoescape %}</p>
+          <p>{% autoescape off %}{{C.text}}{% endautoescape %}
+            {% if C.project %}
+            <a href="{% url 'project' pk=C.project.pk %}">{{C.project}}</a>
+            {% endif %}
+            {% if C.news %}
+            <a href="{% url 'article' pk=C.news.pk %}">{{C.news}}</a>
+            {% endif %}
+            {% if C.gallery %}
+            <a href="{% url 'photogallery' pk=C.gallery.pk %}">{{C.gallery}}</a>
+            {% endif %}
+
+          </p>
         {% endif %}
         {% if C.photo %}
           <div id="photos" style="background-image:url({{ C.photo.url }});">

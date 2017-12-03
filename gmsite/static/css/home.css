@@ -179,10 +179,11 @@
   opacity: 0.8;
 }
 
-.projectcontent a {
+.projectcontentlink {
   background-color: #189185;
   font-size: 2vh;
-  color: black;
+  color: #272727;
+  font-weight: 900;
   margin: 0;
 }
 
@@ -190,8 +191,9 @@
   opacity: 1;
 }
 
-.projectcontent a:hover {
+.projectcontentlink:hover {
   text-decoration: none;
+  color: #272727;
 }
 
 

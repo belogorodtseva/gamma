@@ -100,9 +100,9 @@
     {% for N in News %}
     <div class="col-sm-4">
       <div class="unoblock" style="background-image:url({{ N.photo.url }});">
-        <div class="projectcontent">
-          <a href="{% url 'projects' %}" class="biga"> {{N.name}} </a>
-        </div>
+        <a href="{% url 'projects' %}" class="projectcontentlink"><div class="projectcontent">
+           {{N.name}}
+        </div></a>
       </div>
     </div>
     {% endfor %}

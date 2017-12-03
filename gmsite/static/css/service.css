@@ -20,6 +20,15 @@
   padding: 1vh;
 }
 
+.servicesecond a {
+  color: #189185;
+}
+
+.servicesecond a:hover {
+  color: #189185;
+  text-decoration: none;
+}
+
 .servicesecond ul {
   list-style-type: none;
   border-left: 0.5vh solid #189185;
