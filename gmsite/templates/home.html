@@ -12,55 +12,13 @@
 <!-- Swiper -->
   <div class="swiper-container swiper1">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" style="background-image: url(../static/img/01.jpg)">
-        <div class="slide-text">
-          <h2><a href="#1">Создание VIP-салона в автомобиле</a></h2>
+      {% for S in Services %}
+        <div class="swiper-slide" style="background-image:url({{ S.photo.url }})">
+          <div class="slide-text">
+            <h2><a href="{% url 'services' pk=S.pk %}">{{S.name}}</a></h2>
+          </div>
         </div>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../static/img/02.JPG)">
-        <div class="slide-text">
-          <h2><a href="#1">Внешний тюнинг автомобиля</a></h2>
-
-        </div>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../static/img/03.JPG)">
-        <div class="slide-text">
-          <h2><a href="#1">Тюнинг салона автомобиля</a></h2>
-
-        </div>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../static/img/04.jpg)">
-        <div class="slide-text">
-          <h2><a href="#1">Охранные и противоугонные системы</a></h2>
-        </div>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../static/img/01.jpg)">
-        <div class="slide-text">
-          <h2><a href="#1">Мультимедийные системы</a></h2>
-        </div>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../static/img/02.JPG)">
-        <div class="slide-text">
-          <h2><a href="#1">Дополнительное оборудование</a></h2>
-
-        </div>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../static/img/03.JPG)">
-        <div class="slide-text">
-          <h2><a href="#1">Тонирование, поклейка пленки</a></h2>
-
-        </div>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../static/img/04.jpg)">
-        <div class="slide-text">
-          <h2><a href="#1">Профессиональная шумоизоляция салона</a></h2>
-        </div>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../static/img/04.jpg)">
-        <div class="slide-text">
-          <h2><a href="#1">Переоборудование транспортных средств</a></h2>
-        </div>
-      </div>
+      {% endfor %}
     </div>
     <!-- Add Pagination -->
     <div class="swiper-pagination swiper-pagination1 swiper-pagination-white"></div>
@@ -100,7 +58,7 @@
     {% for N in News %}
     <div class="col-sm-4">
       <div class="unoblock" style="background-image:url({{ N.photo.url }});">
-        <a href="{% url 'projects' %}" class="projectcontentlink"><div class="projectcontent">
+        <a href="{% url 'article' pk=N.pk %}" class="projectcontentlink"><div class="projectcontent">
            {{N.name}}
         </div></a>
       </div>

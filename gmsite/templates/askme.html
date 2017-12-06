@@ -1,0 +1,49 @@
+{% extends "all.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/askme.css' %}" type = "text/css"/>
+  <title>Вопросы | Гама Украина</title>
+{% endblock %}
+
+{% block mainin %}
+
+  <div class="ask">
+      <div class="contactform">
+         <center><h3>Задай вопрос</h3></center>
+          <form id="form" method="post">
+              {% csrf_token %}
+              <input type="text" name="name" required id="id_name" placeholder="ИМЯ"/>
+              <input type="email" name="email" id="id_email" placeholder="E_MAIL"/>
+              <textarea type="text" name="question" required id="id_message" placeholder="СООБЩЕНИЕ"></textarea>
+
+              <div class="form-actions">
+                  <input id="submit" type="submit" value="ОТПРАВИТЬ">
+              </div>
+          </form>
+     </div>
+
+     <div class="question">
+       <center><h3>Популярные вопросы</h3></center>
+       {% for Q in Questions %}
+        {% if Q.answer %}
+           <details>
+            <summary>{{Q.question}}</summary>
+            <p>{{Q.answer}}</p>
+          </details>
+        {% endif %}
+       {% endfor %}
+     </div>
+  </div>
+
+
+
+
+{% endblock %}
+
+{% block scriptin %}
+
+<script>
+
+</script>
+{% endblock %}

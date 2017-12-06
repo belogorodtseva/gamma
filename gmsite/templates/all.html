@@ -26,6 +26,8 @@
 
 <body>
 
+  <div id="wrap">
+
   <!--{% autoescape off %}{{S.text}}{% endautoescape %}-->
   <nav id="nav" role="navigation">
     <div class="logo">
@@ -46,7 +48,7 @@
           <a aria-haspopup="true">Услуги</a>
           <ul>
             {% for S in Services %}
-              <li><a href="{% url 'services' pk=S.pk %}">{{S.name}}</a></li>
+              <li><a href="{% url 'services' pk=S.pk %}">{{S.shortname}}</a></li>
             {% endfor %}
           </ul>
         </li>
@@ -54,24 +56,24 @@
         <li>
           <a aria-haspopup="true">Компания</a>
           <ul>
-              <li><a href="#1">О нас</a></li>
-              <li><a href="#2">Контакты</a></li>
-              <li><a href="#3">Вакансии</a></li>
+              <li><a href="/about/">О нас</a></li>
+              <li><a href="/contact/">Контакты</a></li>
+              <li><a href="/vacancy/">Вакансии</a></li>
           </ul>
         </li>
-        <li><a href="/contact/">Спроси нас</a></li>
+        <li><a href="/askme/">Спроси нас</a></li>
     </ul>
 </nav>
 
   {% block mainin %}
   {% endblock %}
-
+</div>
   <footer>
     <div class="footer-content">
       <div class="numbers">
-        <p>&#9742;   +380XXXXXXX </p>
-        <p>&#9742;   +380XXXXXXX </p>
-        <p>&#9742;   +380XXXXXXX </p>
+        {% for N in Numbers %}
+          <p>&#9742; {{N.number}}</p>
+        {% endfor %}
       </div>
       <div class="adress">
         <h3>Адрес</h3>

@@ -1,0 +1,80 @@
+
+
+.contacts {
+  max-width: 1100px;
+  margin: 0px auto;
+}
+
+h1 {
+  margin-top: 10vh;
+  font-size: 4vh;
+  color: #189185;
+  text-align: center;
+  width: 100%;
+}
+
+.contacts h2 {
+  color: #272727;
+  font-size: 3.5vh;
+
+}
+
+.contacts p {
+  font-size: 2vh;
+  border-left: 5px solid #189185;
+  background-color: #2727271c;
+  padding: 1vh;
+}
+
+.lcontact {
+  width: 40%;
+  float: left;
+}
+
+.rcontact {
+  width: 59%;
+  float: left;
+}
+
+.rcontact img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 1024px) and (min-width : 768px) and (orientation: portrait){
+
+
+
+  .contacts h2 {
+    font-size: 3vh;
+  }
+  .lcontact {
+    width: 100%;
+    float: left;
+  }
+
+  .rcontact {
+    width: 100%;
+    float: left;
+  }
+}
+
+
+
+@media screen and (max-width: 767px) and (orientation: portrait){
+
+
+  .contacts h2 {
+    font-size: 3vh;
+  }
+
+  .lcontact {
+    width: 100%;
+    float: left;
+  }
+
+  .rcontact {
+    width: 100%;
+    float: left;
+  }
+}

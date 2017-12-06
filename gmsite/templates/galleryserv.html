@@ -1,0 +1,117 @@
+{% extends "all.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'css/projects.css' %}" type = "text/css"/>
+  <title>Галлерея | {% for N in Name %}{{N.name}}{% endfor %} | Гама Украина</title>
+{% endblock %}
+
+{% block mainin %}
+
+
+  <h1>ГАЛЛЕРЕЯ | {% for N in Name %}{{N.name}}{% endfor %}</h1>
+
+  <div class="newsblock">
+
+      {% for P in Projects %}
+
+      <div class="col-sm-4">
+        <div class="unoblock" style="background-image:url({{ P.photo.url }});">
+          <a href="{% url 'photogallery' pk=P.pk %}" class="projectcontentlink"><div class="projectcontent">
+             {{P.name}}
+          </div></a>
+        </div>
+      </div>
+
+
+      {% endfor %}
+
+      <div class="pagination">
+         <span class="step-links">
+             {% if Projects.has_previous %}
+                 <a href="?page={{ Projects.previous_page_number }}">назад</a>
+             {% endif %}
+
+             <span class="current">
+                 страница {{ Projects.number }} из {{ Projects.paginator.num_pages }}
+             </span>
+
+             {% if Projects.has_next %}
+                 <a href="?page={{ Projects.next_page_number }}">вперед</a>
+             {% endif %}
+         </span>
+     </div>
+
+
+  </div>
+
+  <!-- Swiper -->
+  <div class="swiper-models">
+    <div class="swiper-container swiper2">
+      <div class="swiper-wrapper">
+        {% for M in Models %}
+          <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
+            <a href="{% url 'model' pk=M.pk %}"></a>
+          </div>
+        {% endfor %}
+      </div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next swiper-button-next2 swiper-button-black"></div>
+      <div class="swiper-button-prev swiper-button-prev2 swiper-button-black"></div>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+{% block scriptin %}
+<script src="/static/js/swiper.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $( ".newsblock .col-sm-4:nth-child(2n)" ).addClass("secondNews");
+  });
+</script>
+<script>
+var swiper1 = new Swiper('.swiper1', {
+  spaceBetween: 30,
+  centeredSlides: true,
+  autoplay: 2000,
+  pagination: '.swiper-pagination1',
+  paginationClickable: true,
+});
+if(window.screen.width > 1024) {
+  var swiper2 = new Swiper('.swiper2', {
+    slidesPerView: 12,
+    spaceBetween: 30,
+    slidesPerGroup: 12,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    nextButton: '.swiper-button-next2',
+    prevButton: '.swiper-button-prev2',
+  });
+};
+if(window.screen.width <= 1024 && window.screen.width > 800) {
+  var swiper2 = new Swiper('.swiper2', {
+    slidesPerView: 8,
+    spaceBetween: 30,
+    slidesPerGroup: 8,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    nextButton: '.swiper-button-next2',
+    prevButton: '.swiper-button-prev2',
+  });
+};
+if(window.screen.width < 800) {
+  var swiper2 = new Swiper('.swiper2', {
+    slidesPerView: 6,
+    spaceBetween: 30,
+    slidesPerGroup: 6,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    nextButton: '.swiper-button-next2',
+    prevButton: '.swiper-button-prev2',
+  });
+};
+</script>
+{% endblock %}

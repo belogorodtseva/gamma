@@ -1,0 +1,130 @@
+
+.ask {
+  max-width: 1100px;
+  margin: 0px auto;
+  margin-top: 10vh;
+  min-height: 75vh;
+}
+
+.ask h2 {
+  color: #189185;
+  font-size: 3vh;
+  text-align: left;
+  margin-top: 5vh;
+}
+
+.ask h3 {
+  padding: 2vh;
+  color: #272727;
+  font-size: 3vh;
+}
+
+.question summary{
+  font-size: 2.5vh;
+  margin-top: 2vh;
+  padding-left: 1vh;
+  border-top: 1px solid #2727271c;
+  padding-top: 1vh;
+}
+
+.question summary:hover{
+
+  color: #189185;
+  cursor: pointer;
+}
+
+
+.question summary:focus{
+  outline: 0;
+}
+
+
+.question p {
+  font-size: 1.9vh;
+}
+
+.ask p {
+  font-size: 2.1vh;
+  border-left: 5px solid #189185;
+  background-color: #2727271c;
+  padding: 1vh;
+  margin-left: 5vh;
+}
+
+.contactform {
+  background-color: #2727271c;
+}
+
+.contactform input, .contactform textarea {
+  background-color: #f3f3f3;
+  border: 0;
+  border-left: 5px solid #189185;
+  font-size: 2.1vh;
+  color: #272727;
+  padding: 1vh;
+  margin-bottom: 2vh;
+  display: block;
+  width: 60%;
+  margin-left: 20%;
+  border-radius: 0;
+}
+
+.contactform textarea {
+  min-height: 12vh;
+  max-width: 60%;
+}
+
+.contactform input:hover, .contactform textarea:hover {
+  outline: 1px solid #189185;
+}
+
+.contactform input:focus, .contactform textarea:focus {
+  outline: 1px solid #189185;
+}
+
+#submit:hover {
+  background-color: #189185;
+  color: #f3f3f3;
+}
+
+.form-actions {
+  padding-bottom: 2vh;
+}
+
+
+
+
+
+
+@media screen and (max-width: 1024px) and (min-width : 768px) and (orientation: portrait){
+
+
+
+  .ask h2 {
+    font-size: 3vh;
+    padding-left: 1vh;
+  }
+
+  .ask h3 {
+    font-size: 3.5vh;
+    padding-left: 1vh;
+  }
+
+}
+
+
+
+@media screen and (max-width: 767px) and (orientation: portrait){
+
+
+  .vacancy h2 {
+    font-size: 3vh;
+    padding-left: 1vh;
+  }
+
+  .vacancy h3 {
+    font-size: 2.5vh;
+    padding-left: 1vh;
+  }
+
+}

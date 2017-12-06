@@ -1,0 +1,41 @@
+{% extends "all.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/contact.css' %}" type = "text/css"/>
+  <title>Контакты | Гама Украина</title>
+{% endblock %}
+
+{% block mainin %}
+
+
+  <h1>Контакты</h1>
+  <div class="contacts">
+    <div class="lcontact">
+      <h2>Телефоны</h2>
+      {% for N in Numbers %}
+        <p>{{N.number}}</p>
+      {% endfor %}
+      <h2>Адрес</h2>
+        <p>Киев, пр. Освободителей (Визволителів) д.1</p>
+      <h2>Время работы</h2>
+        <p><strong>ПН-ПТ</strong>9:00-19:00</p>
+        <p><strong>CБ</strong>9:00-14:00</p>
+    </div>
+    <div class="rcontact">
+      <h2>Карта проезда</h2>
+        <img src="{% static 'img/map1.jpg' %}">
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
+
+{% block scriptin %}
+
+<script>
+
+</script>
+{% endblock %}

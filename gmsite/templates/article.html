@@ -1,0 +1,48 @@
+{% extends "all.html" %}
+{% load staticfiles %}
+
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'css/project.css' %}" type = "text/css"/>
+  <title>{% for P in Project %}{{P.name}}{% endfor %} | Гама Украина</title>
+{% endblock %}
+
+{% block mainin %}
+
+  <div class="projectblock">
+
+      {% for P in Project %}
+        <h1>{{P.name}}</h1>
+        <h4>{{P.model}}</h4>
+      {% endfor %}
+
+      {% for I in Image %}
+        {% if I.text %}
+          <p>{{I.text}}</p>
+        {% endif %}
+        <div id="photos">
+          {% if I.photo1 %}
+          <div id="photo1" style="background-image:url({{ I.photo1.url }});">
+          </div>
+          {% endif %}
+          {% if I.photo2 %}
+          <div id="photo2" style="background-image:url({{ I.photo2.url }});">
+          </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+  </div>
+
+
+
+{% endblock %}
+
+{% block scriptin %}
+<script src="/static/js/swiper.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $( ".newsblock .col-sm-4:nth-child(2n)" ).addClass("secondNews");
+  });
+</script>
+
+{% endblock %}

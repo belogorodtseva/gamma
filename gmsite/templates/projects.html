@@ -52,7 +52,7 @@
       <div class="swiper-wrapper">
         {% for M in Models %}
           <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
-            <a href="{% url 'model' pk=M.pk %}"></a>
+            <a href="{% url 'projectsmodel' pk=M.pk %}"></a>
           </div>
         {% endfor %}
       </div>

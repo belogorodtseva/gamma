@@ -8,7 +8,8 @@ class Models(models.Model):
         return self.name
 
 class Services(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
+    shortname = models.CharField(max_length=100, blank=True, null=True)
     photo = models.FileField(null=False)
     def __str__(self):
         return self.name
@@ -16,7 +17,7 @@ class Services(models.Model):
 class Projects(models.Model):
     name = models.CharField(max_length=250)
     photo = models.FileField(null=True)
-    model = models.ForeignKey(Models, blank=True, null=True)
+    model = models.ForeignKey(Models, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -39,7 +40,7 @@ class ServicesSecondPriceTable(models.Model):
 class News(models.Model):
     name = models.CharField(max_length=250)
     photo = models.FileField(null=True)
-    model = models.ForeignKey(Models, blank=True, null=True)
+    model = models.ForeignKey(Models, blank=True, null=True, on_delete=models.CASCADE)
     start = models.BooleanField(default=False)
 
     def __str__(self):
@@ -55,8 +56,8 @@ class Gallery(models.Model):
     name = models.CharField(max_length=250, blank=True, null=True)
     photo = models.FileField(blank=True, null=True)
     text = models.TextField(blank=True, null=True)
-    model = models.ForeignKey(Models, blank=True, null=True)
-    service = models.ForeignKey(Services, blank=True, null=True)
+    model = models.ForeignKey(Models, blank=True, null=True, on_delete=models.CASCADE)
+    service = models.ForeignKey(ServicesSecond, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -74,9 +75,9 @@ class ServicesSecondContent(models.Model):
     text = models.TextField(blank=True, null=True)
     photo = models.FileField(blank=True, null=True)
     service = models.ForeignKey(ServicesSecond, on_delete=models.CASCADE)
-    project = models.ForeignKey(Projects, blank=True, null=True)
-    news = models.ForeignKey(News, blank=True, null=True)
-    gallery = models.ForeignKey(Gallery, blank=True, null=True)
+    project = models.ForeignKey(Projects, blank=True, null=True, on_delete=models.CASCADE)
+    news = models.ForeignKey(News, blank=True, null=True, on_delete=models.CASCADE)
+    gallery = models.ForeignKey(Gallery, blank=True, null=True, on_delete=models.CASCADE)
     def __str__(self):
         return self.text[:40]
 
@@ -95,3 +96,30 @@ class ImageBlockNews(models.Model):
 class ImageGallery(models.Model):
    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE)
    gimg = models.FileField(blank=True, null=True)
+
+class Contact(models.Model):
+    number = models.CharField(max_length=200)
+    def __str__(self):
+        return self.number
+
+class Vacancy(models.Model):
+    name = models.CharField(max_length=200)
+    money = models.CharField(max_length=300)
+    contact = models.CharField(max_length=500)
+    def __str__(self):
+        return self.name
+
+class NeedVacancy(models.Model):
+    name = models.CharField(max_length=500)
+    vacancy = models.ForeignKey(Vacancy, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
+
+class Question(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    question = models.TextField()
+    answer = models.TextField(blank=True, null=True)
+    show = models.BooleanField(default=False)
+    def __str__(self):
+        return self.name

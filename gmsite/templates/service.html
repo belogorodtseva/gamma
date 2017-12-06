@@ -62,6 +62,14 @@
             {% endfor %}
 
       </table>
+      {% for G in Gallery %}
+        {% if G.name %}
+          {% for N in ServicesSecond %}
+            <a href="{% url 'galleryserv' pk=N.pk %}"><button class="button">Перейти в галерею</button></a>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+
   </div>
 
 

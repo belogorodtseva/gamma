@@ -34,13 +34,7 @@
     </div>
 
 
-  <h4>{% for N in Gallery %}
-    {% if N.service %}
-    Услуга: 
-    <a href="{% url 'services' pk=N.service.pk %}">
-    {{N.service}}</a>
-    {% endif %}
-    {% endfor %}</h4>
+
 
 
 

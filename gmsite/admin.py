@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from gmsite.models import Projects,Models,Services,News,Gallery,ImageBlock,ImageBlockNews,ServicesSecond,ImageGallery,ServicesSecondContent,ServicesSecondPriceTable,ServicesSecondPriceTableElement
+from gmsite.models import Question,Vacancy,NeedVacancy,Contact,Projects,Models,Services,News,Gallery,ImageBlock,ImageBlockNews,ServicesSecond,ImageGallery,ServicesSecondContent,ServicesSecondPriceTable,ServicesSecondPriceTableElement
 
 admin.site.register(Models)
 
@@ -53,6 +53,14 @@ class GalleryAdmin(admin.ModelAdmin):
         ImageGalleryInline,
     ]
 
+class NeedVacancyInline(admin.TabularInline):
+    model = NeedVacancy
+
+class VacancyAdmin(admin.ModelAdmin):
+    inlines = [
+        NeedVacancyInline,
+    ]
+
 
 admin.site.register(Projects, ProjectsAdmin)
 admin.site.register(ImageBlock)
@@ -69,3 +77,10 @@ admin.site.register(ServicesSecondPriceTableElement)
 
 admin.site.register(Gallery, GalleryAdmin)
 admin.site.register(ImageGallery)
+
+admin.site.register(Vacancy, VacancyAdmin)
+admin.site.register(NeedVacancy)
+
+admin.site.register(Contact)
+
+admin.site.register(Question)
