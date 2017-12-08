@@ -3,7 +3,17 @@
 
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/contact.css' %}" type = "text/css"/>
-  <title>Контакты | Гама Украина</title>
+  <title>{% for P in Numbers %}{{P.title}}{% endfor %}</title>
+  <meta name="description" content="{% for P in Numbers %}{{P.description}}{% endfor %}"/>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{% for P in Numbers %}{{P.title}}{% endfor %}" />
+  <meta property="og:description" content="{% for P in Numbers %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
+
+  <meta itemprop="name" content="{% for P in Numbers %}{{P.title}}{% endfor %}" />
+  <meta itemprop="description" content="{% for P in Numbers %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
 {% endblock %}
 
 {% block mainin %}
@@ -21,6 +31,10 @@
       <h2>Время работы</h2>
         <p><strong>ПН-ПТ</strong>9:00-19:00</p>
         <p><strong>CБ</strong>9:00-14:00</p>
+      <h2>Наши сайты</h2>
+        {% for L in Links %}
+          <a href="{{L.link}}" ><p>{{L.name}}</p></a>
+        {% endfor %}
     </div>
     <div class="rcontact">
       <h2>Карта проезда</h2>

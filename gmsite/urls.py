@@ -19,6 +19,7 @@ urlpatterns = [
 
     url(r'^gallery/(?P<pk>[0-9]+)/', views.galleryserv, name='galleryserv'),
     url(r'^gallery/', views.gallery, name='gallery'),
+    url(r'^gallerymodel/(?P<pk>[0-9]+)/', views.gallerymodel, name='gallerymodel'),
 
     url(r'^article/(?P<pk>[0-9]+)/', views.article, name='article'),
     url(r'^contact/', views.contact, name='contact'),
@@ -26,6 +27,6 @@ urlpatterns = [
     url(r'^about/', views.about, name='about'),
 
     url(r'^model/(?P<pk>[0-9]+)/', views.model, name='model'),
-    
+
     url(r'^askme/', views.askme, name='askme'),
     ]

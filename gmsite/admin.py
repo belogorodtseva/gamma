@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from gmsite.models import Question,Vacancy,NeedVacancy,Contact,Projects,Models,Services,News,Gallery,ImageBlock,ImageBlockNews,ServicesSecond,ImageGallery,ServicesSecondContent,ServicesSecondPriceTable,ServicesSecondPriceTableElement
+from gmsite.models import DescriptionsGallery,DescriptionsServices,DescriptionsProjects,DescriptionsNews,MainText,Links,Question,Vacancy,NeedVacancy,Contact,Projects,Models,Services,News,Gallery,ImageBlock,ImageBlockNews,ServicesSecond,ImageGallery,ServicesSecondContent,ServicesSecondPriceTable,ServicesSecondPriceTableElement
 
 admin.site.register(Models)
 
@@ -83,4 +83,16 @@ admin.site.register(NeedVacancy)
 
 admin.site.register(Contact)
 
+admin.site.register(Links)
+
+admin.site.register(MainText)
+
 admin.site.register(Question)
+
+admin.site.register(DescriptionsGallery)
+
+admin.site.register(DescriptionsNews)
+
+admin.site.register(DescriptionsProjects)
+
+admin.site.register(DescriptionsServices)

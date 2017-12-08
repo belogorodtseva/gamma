@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from gmsite.models import Question,Vacancy,NeedVacancy,Contact,Projects,Models,Services,News,Gallery,ImageBlock,ImageBlockNews,ServicesSecond,ImageGallery,ServicesSecondContent,ServicesSecondPriceTable,ServicesSecondPriceTableElement
+from gmsite.models import DescriptionsGallery,DescriptionsServices,DescriptionsProjects,DescriptionsNews,MainText,Links,Question,Vacancy,NeedVacancy,Contact,Projects,Models,Services,News,Gallery,ImageBlock,ImageBlockNews,ServicesSecond,ImageGallery,ServicesSecondContent,ServicesSecondPriceTable,ServicesSecondPriceTableElement
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect
@@ -23,25 +23,30 @@ from gmsite.forms import ContactForm
 
 def index(request):
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
-        'News' : News.objects.all()[:3],
+        'News' : News.objects.filter(active=True).order_by("-date")[:3],
         'Models' : Models.objects.all(),
         'Services' : Services.objects.all(),
+        'Text' : MainText.objects.all(),
     }
     return render(request, 'home.html', content)
 
 def services(request, pk):
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'ServicesSecond' : ServicesSecond.objects.filter(service=pk),
         'Name' : Services.objects.filter(pk=pk),
         'Services' : Services.objects.all(),
+        'Des' : DescriptionsServices.objects.all(),
     }
     return render(request, 'services.html', content)
 
 def service(request, pk):
     pricetable = ServicesSecondPriceTable.objects.get(service=pk)
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'ServicesSecond' : ServicesSecond.objects.filter(pk=pk),
         'Content' : ServicesSecondContent.objects.filter(service=pk),
@@ -54,17 +59,18 @@ def service(request, pk):
 
 def model(request, pk):
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
-        'Projects' : Projects.objects.filter(model=pk).order_by("-id")[:3],
-        'News' : Projects.objects.filter(model=pk)[:2],
-        'Gallery' : Projects.objects.filter(model=pk).order_by("-id")[:3],
+        'Projects' : Projects.objects.filter(model=pk).filter(active=True).order_by("-date")[:3],
+        'News' : Projects.objects.filter(model=pk).filter(active=True).order_by("-date")[:3],
+        'Gallery' : Projects.objects.filter(model=pk).filter(active=True).order_by("-date")[:3],
         'Services' : Services.objects.all(),
         'Name' : Models.objects.filter(pk=pk),
     }
     return render(request, 'model.html', content)
 
 def projects(request):
-    projectlist = Projects.objects.all().order_by("-id")
+    projectlist = Projects.objects.filter(active=True).order_by("-date")
     paginator = Paginator(projectlist, 9)
     page = request.GET.get('page')
     try:
@@ -76,15 +82,17 @@ def projects(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         project = paginator.page(paginator.num_pages)
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'Projects' : project,
         'Models' : Models.objects.all(),
         'Services' : Services.objects.all(),
+        'Des' : DescriptionsProjects.objects.all(),
     }
     return render(request, 'projects.html', content)
 
 def projectsmodel(request, pk):
-    projectlist = Projects.objects.filter(model=pk).order_by("-id")
+    projectlist = Projects.objects.filter(model=pk).filter(active=True).order_by("-date")
     paginator = Paginator(projectlist, 9)
     page = request.GET.get('page')
     try:
@@ -96,16 +104,19 @@ def projectsmodel(request, pk):
         # If page is out of range (e.g. 9999), deliver last page of results.
         project = paginator.page(paginator.num_pages)
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'Projects' : project,
         'Models' : Models.objects.all(),
         'Services' : Services.objects.all(),
         'Name' : Models.objects.filter(pk=pk),
+        'Des' : DescriptionsProjects.objects.all(),
     }
     return render(request, 'projectsmodel.html', content)
 
 def project(request, pk):
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'Project' : Projects.objects.filter(pk=pk),
         'Image' : ImageBlock.objects.filter(project=pk),
@@ -114,7 +125,7 @@ def project(request, pk):
     return render(request, 'project.html', content)
 
 def gallery(request):
-    projectlist = Gallery.objects.all().order_by("-id")
+    projectlist = Gallery.objects.all().filter(active=True).order_by("-date")
     paginator = Paginator(projectlist, 9)
     page = request.GET.get('page')
     try:
@@ -126,15 +137,17 @@ def gallery(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         project = paginator.page(paginator.num_pages)
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'Projects' : project,
         'Models' : Models.objects.all(),
         'Services' : Services.objects.all(),
+        'Des' : DescriptionsGallery.objects.all(),
     }
     return render(request, 'gallery.html', content)
 
 def galleryserv(request, pk):
-    projectlist = Gallery.objects.filter(service=pk).order_by("-id")
+    projectlist = Gallery.objects.filter(service=pk).filter(active=True).order_by("-date")
     paginator = Paginator(projectlist, 9)
     page = request.GET.get('page')
     try:
@@ -146,19 +159,44 @@ def galleryserv(request, pk):
         # If page is out of range (e.g. 9999), deliver last page of results.
         project = paginator.page(paginator.num_pages)
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'Projects' : project,
         'Models' : Models.objects.all(),
         'Services' : Services.objects.all(),
         'Name' : ServicesSecond.objects.filter(pk=pk),
+        'Des' : DescriptionsGallery.objects.all(),
     }
     return render(request, 'galleryserv.html', content)
+
+def gallerymodel(request, pk):
+    projectlist = Gallery.objects.all().filter(model=pk).filter(active=True).order_by("-date")
+    paginator = Paginator(projectlist, 9)
+    page = request.GET.get('page')
+    try:
+        project = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        project = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        project = paginator.page(paginator.num_pages)
+    content = {
+        'Links' : Links.objects.all(),
+        'Numbers' : Contact.objects.all(),
+        'Projects' : project,
+        'Models' : Models.objects.all(),
+        'Services' : Services.objects.all(),
+        'Des' : DescriptionsGallery.objects.all(),
+    }
+    return render(request, 'gallerymodel.html', content)
 
 
 def photogallery(request, pk):
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
-        'Gallery' : Gallery.objects.filter(id=pk),
+        'Project' : Gallery.objects.filter(id=pk),
         'Photo' : ImageGallery.objects.filter(gallery=pk),
         'Services' : Services.objects.all(),
     }
@@ -167,7 +205,7 @@ def photogallery(request, pk):
 
 
 def news(request):
-    projectlist = News.objects.all().order_by("-id")
+    projectlist = News.objects.all().filter(active=True).order_by("-date")
     paginator = Paginator(projectlist, 9)
     page = request.GET.get('page')
     try:
@@ -179,15 +217,17 @@ def news(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         project = paginator.page(paginator.num_pages)
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'Projects' : project,
         'Models' : Models.objects.all(),
         'Services' : Services.objects.all(),
+        'Des' : DescriptionsNews.objects.all(),
     }
     return render(request, 'news.html', content)
 
 def newsmodel(request, pk):
-    projectlist = News.objects.filter(model=pk).order_by("-id")
+    projectlist = News.objects.filter(model=pk).filter(active=True).order_by("-date")
     paginator = Paginator(projectlist, 9)
     page = request.GET.get('page')
     try:
@@ -199,16 +239,19 @@ def newsmodel(request, pk):
         # If page is out of range (e.g. 9999), deliver last page of results.
         project = paginator.page(paginator.num_pages)
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'Projects' : project,
         'Models' : Models.objects.all(),
         'Services' : Services.objects.all(),
         'Name' : Models.objects.filter(pk=pk),
+        'Des' : DescriptionsNews.objects.all(),
     }
     return render(request, 'newsmodel.html', content)
 
 def article(request, pk):
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'Project' : News.objects.filter(pk=pk),
         'Image' : ImageBlockNews.objects.filter(news=pk),
@@ -219,6 +262,7 @@ def article(request, pk):
 
 def contact(request):
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'Services' : Services.objects.all(),
     }
@@ -226,6 +270,7 @@ def contact(request):
 
 def about(request):
     content = {
+        'Links' : Links.objects.all(),
         'Numbers' : Contact.objects.all(),
         'Services' : Services.objects.all(),
     }
@@ -233,6 +278,7 @@ def about(request):
 
 def vacancy(request):
     content = {
+        'Links' : Links.objects.all(),
         'Vacancy' : Vacancy.objects.all(),
         'Need' : NeedVacancy.objects.all(),
         'Numbers' : Contact.objects.all(),
@@ -255,6 +301,7 @@ def askme(request):
                 email)
         send_mail(subject,contact_message,from_email,['annbelogorodtseva@gmail.com'],fail_silently=False)
     content = {
+        'Links' : Links.objects.all(),
         'form': form,
         'Questions' : Question.objects.all(),
         'Numbers' : Contact.objects.all(),

@@ -4,7 +4,17 @@
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
   <link rel="stylesheet" href="{% static 'css/home.css' %}" type = "text/css"/>
-  <title>Гама Украина</title>
+  <title>{% for P in Text %}{{P.title}}{% endfor %}</title>
+  <meta name="description" content="{% for P in Text %}{{P.description}}{% endfor %}"/>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{% for P in Text %}{{P.title}}{% endfor %}" />
+  <meta property="og:description" content="{% for P in Text %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
+
+  <meta itemprop="name" content="{% for P in Text %}{{P.title}}{% endfor %}" />
+  <meta itemprop="description" content="{% for P in Text %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
 {% endblock %}
 
 {% block mainin %}
@@ -42,15 +52,14 @@
 
   <div class="about">
     <h1>О НАС</h1>
+    {% for T in Text %}
     <div class="abouttextx">
-      <p>This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.</p>
+      <p>{{T.first}}</p>
     </div>
     <div class="abouttext">
-      <p>This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.
-      This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.
-      This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.
-      This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.</p>
+      <p>{{T.second}}</p>
     </div>
+    {% endfor %}
   </div>
 
   <h1>НОВОСТИ</h1>

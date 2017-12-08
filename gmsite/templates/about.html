@@ -3,12 +3,26 @@
 
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/about.css' %}" type = "text/css"/>
-  <title>История, награды | Гама Украина</title>
+
+  <title>О нас - Гамма Украина</title>
+  <meta name="description" content="О нас"/>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="О нас - Гамма Украина" />
+  <meta property="og:description" content="О нас" />
+
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
+
+  <meta itemprop="name" content="О нас - Гамма Украина" />
+  <meta itemprop="description" content="О нас" />
+  <meta itemprop="image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
+
 {% endblock %}
 
 {% block mainin %}
 
   <div class="contacts">
+    <h1>О НАС</h1>
     <div class="lcontact">
       <h2>История</h2>
         <h3>1994г.</h3>

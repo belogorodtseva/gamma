@@ -15,13 +15,12 @@
   <meta itemprop="name" content="{% for P in Des %}{{P.title}}{% endfor %}" />
   <meta itemprop="description" content="{% for P in Des %}{{P.description}}{% endfor %}" />
   <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
-
 {% endblock %}
 
 {% block mainin %}
 
 
-  <h1>НОВОСТИ</h1>
+  <h1>ГАЛЛЕРЕЯ | {% for N in Name %}{{N.name}}{% endfor %}</h1>
 
   <div class="newsblock">
 
@@ -29,7 +28,7 @@
 
       <div class="col-sm-4">
         <div class="unoblock" style="background-image:url({{ P.photo.url }});">
-          <a href="{% url 'article' pk=P.pk %}" class="projectcontentlink"><div class="projectcontent">
+          <a href="{% url 'photogallery' pk=P.pk %}" class="projectcontentlink"><div class="projectcontent">
              {{P.name}}
           </div></a>
         </div>
@@ -63,7 +62,7 @@
       <div class="swiper-wrapper">
         {% for M in Models %}
           <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
-            <a href="{% url 'newsmodel' pk=M.pk %}"></a>
+            <a href="{% url 'gallerymodel' pk=M.pk %}"></a>
           </div>
         {% endfor %}
       </div>

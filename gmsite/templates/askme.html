@@ -3,7 +3,17 @@
 
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/askme.css' %}" type = "text/css"/>
-  <title>Вопросы | Гама Украина</title>
+  <title>{% for P in Questions %}{{P.title}}{% endfor %}</title>
+  <meta name="description" content="{% for P in Questions %}{{P.description}}{% endfor %}"/>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{% for P in Questions %}{{P.title}}{% endfor %}" />
+  <meta property="og:description" content="{% for P in Questions %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
+
+  <meta itemprop="name" content="{% for P in Questions %}{{P.title}}{% endfor %}" />
+  <meta itemprop="description" content="{% for P in Questions %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
 {% endblock %}
 
 {% block mainin %}
@@ -28,8 +38,8 @@
        {% for Q in Questions %}
         {% if Q.answer %}
            <details>
-            <summary>{{Q.question}}</summary>
-            <p>{{Q.answer}}</p>
+            <summary>{% autoescape off %}{{Q.question}}{% endautoescape %}</summary>
+            <p>{% autoescape off %}{{Q.answer}}{% endautoescape %}</p>
           </details>
         {% endif %}
        {% endfor %}

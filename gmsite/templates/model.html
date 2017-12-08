@@ -5,13 +5,24 @@
   <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
   <link rel="stylesheet" href="{% static 'css/projects.css' %}" type = "text/css"/>
   <link rel="stylesheet" href="{% static 'css/models.css' %}" type = "text/css"/>
-  <title>{% for N in Name %}{{N.name}}{% endfor %} | Гама Украина</title>
+  <title>{% for P in Name %}{{P.title}}{% endfor %}</title>
+  <meta name="description" content="{% for P in Name %}{{P.description}}{% endfor %}"/>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{% for P in Name %}{{P.title}}{% endfor %}" />
+  <meta property="og:description" content="{% for P in Name %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% for P in Name %}{{P.photo.url}}{% endfor %}" />
+
+  <meta itemprop="name" content="{% for P in Name %}{{P.title}}{% endfor %}" />
+  <meta itemprop="description" content="{% for P in Name %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% for P in Name %}{{P.photo.url}}{% endfor %}" />
 {% endblock %}
 
 {% block mainin %}
 
   <h1>{% for N in Name %}{{N.name}}{% endfor %}</h1>
 
+  {% if Projects %}
   <div class="nameblock"><h2>ПРОЕКТЫ</h2></div>
 
   <div class="newsblock">
@@ -29,7 +40,9 @@
       {% endfor %}
 
   </div>
+  {% endif %}
 
+  {% if News %}
   <div class="nameblock"><h2>НОВОСТИ</h2></div>
 
   <div class="newsblock">
@@ -47,8 +60,10 @@
       {% endfor %}
 
   </div>
+  {% endif %}
 
-  <div class="nameblock"><h2>ГАЛЛЕРЕЯ</h2></div>
+  {% if Gallery %}
+  <div class="nameblock"><h2>ГАЛЕРЕЯ</h2></div>
 
   <div class="newsblock" style="padding-bottom:4vh;">
 
@@ -65,6 +80,7 @@
       {% endfor %}
 
   </div>
+  {% endif %}
 
 
 

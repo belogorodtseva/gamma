@@ -3,7 +3,18 @@
 
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/vacancy.css' %}" type = "text/css"/>
-  <title>Вакансии | Гама Украина</title>
+  <title>{% for P in Vacancy %}{{P.title}}{% endfor %}</title>
+  <meta name="description" content="{% for P in Vacancy %}{{P.description}}{% endfor %}"/>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{% for P in Vacancy %}{{P.title}}{% endfor %}" />
+  <meta property="og:description" content="{% for P in Vacancy %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
+
+  <meta itemprop="name" content="{% for P in Vacancy %}{{P.title}}{% endfor %}" />
+  <meta itemprop="description" content="{% for P in Vacancy %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
+
 {% endblock %}
 
 {% block mainin %}

@@ -2,9 +2,18 @@
 {% load staticfiles %}
 
 {% block headin %}
-  <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
   <link rel="stylesheet" href="{% static 'css/projects.css' %}" type = "text/css"/>
-  <title>Галлерея | {% for N in Name %}{{N.name}}{% endfor %} | Гама Украина</title>
+  <title>{% for P in Des %}{{P.title}}{% endfor %}</title>
+  <meta name="description" content="{% for P in Des %}{{P.description}}{% endfor %}"/>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{% for P in Des %}{{P.title}}{% endfor %}" />
+  <meta property="og:description" content="{% for P in Des %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
+
+  <meta itemprop="name" content="{% for P in Des %}{{P.title}}{% endfor %}" />
+  <meta itemprop="description" content="{% for P in Des %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% static 'img/logo_gamma.png' %}" />
 {% endblock %}
 
 {% block mainin %}
@@ -46,21 +55,6 @@
 
   </div>
 
-  <!-- Swiper -->
-  <div class="swiper-models">
-    <div class="swiper-container swiper2">
-      <div class="swiper-wrapper">
-        {% for M in Models %}
-          <div class="swiper-slide" style="background-image:url({{ M.photo.url }});">
-            <a href="{% url 'model' pk=M.pk %}"></a>
-          </div>
-        {% endfor %}
-      </div>
-      <!-- Add Arrows -->
-      <div class="swiper-button-next swiper-button-next2 swiper-button-black"></div>
-      <div class="swiper-button-prev swiper-button-prev2 swiper-button-black"></div>
-    </div>
-  </div>
 
 
 {% endblock %}
@@ -72,46 +66,5 @@
     $( ".newsblock .col-sm-4:nth-child(2n)" ).addClass("secondNews");
   });
 </script>
-<script>
-var swiper1 = new Swiper('.swiper1', {
-  spaceBetween: 30,
-  centeredSlides: true,
-  autoplay: 2000,
-  pagination: '.swiper-pagination1',
-  paginationClickable: true,
-});
-if(window.screen.width > 1024) {
-  var swiper2 = new Swiper('.swiper2', {
-    slidesPerView: 12,
-    spaceBetween: 30,
-    slidesPerGroup: 12,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    nextButton: '.swiper-button-next2',
-    prevButton: '.swiper-button-prev2',
-  });
-};
-if(window.screen.width <= 1024 && window.screen.width > 800) {
-  var swiper2 = new Swiper('.swiper2', {
-    slidesPerView: 8,
-    spaceBetween: 30,
-    slidesPerGroup: 8,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    nextButton: '.swiper-button-next2',
-    prevButton: '.swiper-button-prev2',
-  });
-};
-if(window.screen.width < 800) {
-  var swiper2 = new Swiper('.swiper2', {
-    slidesPerView: 6,
-    spaceBetween: 30,
-    slidesPerGroup: 6,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    nextButton: '.swiper-button-next2',
-    prevButton: '.swiper-button-prev2',
-  });
-};
-</script>
+
 {% endblock %}

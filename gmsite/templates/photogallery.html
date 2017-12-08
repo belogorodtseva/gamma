@@ -4,13 +4,24 @@
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
   <link rel="stylesheet" href="{% static 'css/photogallery.css' %}" type = "text/css"/>
-  <title>{% for N in Gallery %}{{N.name}}{% endfor %} | Гама Украина</title>
+
+  <title>{% for P in Project %}{{P.title}}{% endfor %}</title>
+  <meta name="description" content="{% for P in Project %}{{P.description}}{% endfor %}"/>
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{% for P in Project %}{{P.title}}{% endfor %}" />
+  <meta property="og:description" content="{% for P in Project %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% for P in Project %}{{P.photo.url}}{% endfor %}" />
+
+  <meta itemprop="name" content="{% for P in Project %}{{P.title}}{% endfor %}" />
+  <meta itemprop="description" content="{% for P in Project %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% for P in Project %}{{P.photo.url}}{% endfor %}" />
 {% endblock %}
 
 {% block mainin %}
 
-  <h1>{% for N in Gallery %}{{N.name}}{% endfor %}</h1>
-  <h4>{% for N in Gallery %}{{N.text}}{% endfor %}</h4>
+  <h1>{% for N in Project %}{{N.name}}{% endfor %}</h1>
+  <h4>{% for N in Project %}{% autoescape off %}{{N.text}}{% endautoescape %}{% endfor %}</h4>
 
 
 

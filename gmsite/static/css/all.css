@@ -7,6 +7,7 @@ body {
 
 h1 {
   font-size: 4.5vh;
+  margin-top: 10vh;
 }
 
 #nav {
@@ -124,8 +125,21 @@ footer {
   padding: 1vh;
 }
 
-.numbers p {
-  font-size: 1.5vh;
+.footer-content p, .footer-content a {
+  font-size: 1.8vh;
+}
+
+.footer-content a:hover {
+  color: #f3f3f3;
+  text-decoration: none;
+}
+
+.footer-content a {
+  color: #189185;
+}
+
+.footer-content h3 {
+  font-size: 2.5vh;
 }
 
 .adress {

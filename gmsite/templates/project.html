@@ -4,7 +4,17 @@
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
   <link rel="stylesheet" href="{% static 'css/project.css' %}" type = "text/css"/>
-  <title>{% for P in Project %}{{P.name}}{% endfor %} | Гама Украина</title>
+  <title>{% for P in Project %}{{P.title}}{% endfor %}</title>
+  <meta name="description" content="{% for P in Project %}{{P.description}}{% endfor %}"/>
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{% for P in Project %}{{P.title}}{% endfor %}" />
+  <meta property="og:description" content="{% for P in Project %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% for P in Project %}{{P.photo.url}}{% endfor %}" />
+
+  <meta itemprop="name" content="{% for P in Project %}{{P.title}}{% endfor %}" />
+  <meta itemprop="description" content="{% for P in Project %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% for P in Project %}{{P.photo.url}}{% endfor %}" />
 {% endblock %}
 
 {% block mainin %}
@@ -18,7 +28,7 @@
 
       {% for I in Image %}
         {% if I.text %}
-          <p>{{I.text}}</p>
+          <p>{% autoescape off %}{{I.text}}{% endautoescape %}</p>
         {% endif %}
         <div id="photos">
           {% if I.photo1 %}

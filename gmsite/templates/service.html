@@ -4,7 +4,18 @@
 {% block headin %}
   <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}" type = "text/css"/>
   <link rel="stylesheet" href="{% static 'css/service.css' %}" type = "text/css"/>
-  <title>{% for N in ServicesSecond %}{{N.name}}{% endfor %} | Гама Украина</title>
+
+  <title>{% for P in ServicesSecond %}{{P.title}}{% endfor %}</title>
+  <meta name="description" content="{% for P in Project %}{{P.description}}{% endfor %}"/>
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{% for P in ServicesSecond %}{{P.title}}{% endfor %}" />
+  <meta property="og:description" content="{% for P in ServicesSecond %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% for P in ServicesSecond %}{{P.photo.url}}{% endfor %}" />
+
+  <meta itemprop="name" content="{% for P in ServicesSecond %}{{P.title}}{% endfor %}" />
+  <meta itemprop="description" content="{% for P in ServicesSecond %}{{P.description}}{% endfor %}" />
+  <meta property="og:image" content="http://gammaukr.pythonanywhere.com{% for P in ServicesSecond %}{{P.photo.url}}{% endfor %}" />
 {% endblock %}
 
 {% block mainin %}
@@ -17,12 +28,15 @@
           <p>{% autoescape off %}{{C.text}}{% endautoescape %}
             {% if C.project %}
             <a href="{% url 'project' pk=C.project.pk %}">{{C.project}}</a>
+            <br>
             {% endif %}
             {% if C.news %}
             <a href="{% url 'article' pk=C.news.pk %}">{{C.news}}</a>
+            <br>
             {% endif %}
             {% if C.gallery %}
             <a href="{% url 'photogallery' pk=C.gallery.pk %}">{{C.gallery}}</a>
+            <br>
             {% endif %}
 
           </p>

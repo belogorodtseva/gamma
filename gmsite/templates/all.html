@@ -5,15 +5,24 @@
 
   {% load staticfiles %}
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{% static 'css/all.css' %}" />
-  <script src="/static/js/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="copyright" lang="ru" content="ООО Гамма-Украина" />
 
-  {% block headin %}
-  {% endblock %}
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow">
+    <meta name="yandex" content="index,follow">
+
+    <meta property="og:site_name" content="Гамма Украина">
+    <meta property="og:locale" content="ru_RU">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}" />
+    <script src="/static/js/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% block headin %}
+    {% endblock %}
+
 
   <style>
   @font-face {
@@ -78,9 +87,13 @@
       <div class="adress">
         <h3>Адрес</h3>
         <p>Киев, пр. Освободителей (Визволителів) д.1</p>
-        <h3>Время работы</h3>
-        <p><strong>ПН-ПТ</strong>9:00-19:00</p>
-        <p><strong>CБ</strong>9:00-14:00</p>
+        <h3>Наши сайты</h3>
+        {% for L in Links %}
+          <a href="{{L.link}}" >{{L.name}}</a>
+          <br>
+        {% endfor %}
+
+
       </div>
       <div class="links">
         <a href="/" id="icc"><img src="{% static 'img/f.png' %}" id = 'blabla'></a>
